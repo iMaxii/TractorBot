@@ -1,0 +1,13 @@
+{
+    "token": "YOUR_TOKEN_HERE",
+    "prefix": "$$",
+    "ownerid": [
+        1234567890
+    ],
+    "modroleid": [
+        1234567890
+    ],
+    "errorchannelid": 1234567890,
+    "guildid": 1234567890,
+    "vulneratedid": 1234567890
+}
