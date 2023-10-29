@@ -1,4 +1,3 @@
-import json
 import os
 
 import discord
@@ -43,7 +42,7 @@ class AutomodCog(commands.Cog):
         for link in banned_links:
             if link in message_content:
                 guild = self.client.get_guild(self.client.config["guildid"])
-                role = guild.get_role(self.client.config["vulneratedid"])
+                role = guild.get_role(self.client.config["vulneratedroleid"])
                 await message.delete()
                 embed = discord.Embed(
                     color=0x925B5B,

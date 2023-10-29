@@ -51,6 +51,7 @@ class Client(commands.Bot):
             "cogs.core.automod",
             "cogs.core.events",
             "cogs.core.errors",
+            "cogs.core.autoroles",
         ]
 
     async def setup_hook(self):

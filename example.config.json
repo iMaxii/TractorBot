@@ -7,7 +7,9 @@
     "modroleid": [
         1234567890
     ],
+    "welcomechannelid": 1234567890,
     "errorchannelid": 1234567890,
     "guildid": 1234567890,
-    "vulneratedid": 1234567890
+    "vulneratedroleid": 1234567890,
+    "welcomeroleid": 1234567890
 }
