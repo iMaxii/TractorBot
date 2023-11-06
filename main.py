@@ -7,6 +7,8 @@ import aiosqlite
 import discord
 from discord.ext import commands
 
+from cogs.core.autoroles import Verification
+
 # Load json files
 config_path = f"{os.path.realpath(os.path.dirname(__file__))}/config.json"
 data_path = f"{os.path.realpath(os.path.dirname(__file__))}/data/data.json"
@@ -57,6 +59,7 @@ class Client(commands.Bot):
     async def setup_hook(self):
         for cog in self.cogslist:
             await self.load_extension(cog)
+        client.add_view(Verification())
 
 
 client = Client()
