@@ -1,0 +1,5 @@
+__pycache__
+config.json
+data/tags.json
+data/banned_links.json
+data/banned_words.json

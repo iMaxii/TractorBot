@@ -1,0 +1,7 @@
+{
+    "token": "YOUR_TOKEN_HERE",
+    "prefix": "!",
+    "guildid": 1234567890,
+    "vulneratedroleid": 1234567890,
+    "welcomeroleid": 1234567890
+}
