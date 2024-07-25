@@ -42,8 +42,7 @@ class AutomodCog(commands.Cog):
                 role = guild.get_role(self.client.config["vulneratedroleid"])
                 await message.delete()
                 embed = discord.Embed(
-                    title="¡Alerta de seguridad!",
-                    description=f"Hemos identificado que has enviado un enlace con un dominio malicioso.\nPara garantizar la seguridad de tu cuenta, te recomendamos que cambies tu contraseña y actives la verificación en dos pasos. Una vez hayas completado estos pasos, puedes solicitar asistencia en el canal <#{self.client.config['vulneratedchannelid']}>.",
+                    description=f"Hemos detectado que has enviado un enlace con un dominio malicioso.\nPara garantizar la seguridad de tu cuenta, te recomendamos que cambies tu contraseña y actives la verificación en dos pasos. Una vez hayas completado estos pasos, puedes solicitar asistencia en el canal <#{self.client.config['vulneratedchannelid']}>.",
                     color=Color.brand_red(),
                 )
                 await user.send(embed=embed)
