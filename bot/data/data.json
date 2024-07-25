@@ -1,9 +1,9 @@
 {
-    "ConfigPath": "./config.json",
+    "ConfigPath": "./bot/config.json",
     "DataPaths": {
-        "banned_words": "./data/banned_words.json",
-        "banned_links": "./data/banned_links.json",
-        "tags": "./data/tags.json"
+        "banned_words": "./bot/data/banned_words.json",
+        "banned_links": "./bot/data/banned_links.json",
+        "tags": "./bot/data/tags.json"
     },
     "statuses": [
         "Un bot hecho por Maxi!",
