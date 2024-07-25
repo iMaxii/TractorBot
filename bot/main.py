@@ -3,9 +3,8 @@ import os
 import sys
 
 import discord
-from discord.ext import commands
-
 from cogs.core.autoroles import Autoroles, Verification
+from discord.ext import commands
 
 data_path = f"{os.getcwd()}/data/data.json"
 with open(data_path, encoding="utf-8") as file:

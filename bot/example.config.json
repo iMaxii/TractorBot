@@ -3,5 +3,6 @@
     "prefix": "!",
     "guildid": 1234567890,
     "vulneratedroleid": 1234567890,
-    "welcomeroleid": 1234567890
+    "welcomeroleid": 1234567890,
+    "vulneratedchannelid": 1234567890
 }

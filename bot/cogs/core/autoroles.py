@@ -97,7 +97,7 @@ class AutorolesCog(commands.Cog):
         role = guild.get_role(self.client.config["welcomeroleid"])
 
         await member.add_roles(role)
-        
+
     @commands.is_owner()
     @commands.command(name="verify")
     async def verify(self, ctx: Context):
