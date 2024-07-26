@@ -30,7 +30,30 @@ TractorBot es un bot de Discord que hace un poco de todo escrito en discord.py d
         poetry install
         ```
 
+3. **Crear el archivo de configuración:**
+
+    En la carpeta `bot`, crea un archivo llamado `config.json` y copia el siguiente contenido del archivo `example.config.json`:
+
+    ```json
+    {
+        "token": "AQUÍ_DEBE_IR_TÚ_TOKEN",
+        "prefix": "!",
+        "guildid": 1234567890,
+        "vulneratedroleid": 1234567890,
+        "welcomeroleid": 1234567890,
+        "vulneratedchannelid": 1234567890
+    }
+    ```
+
+    Reemplaza `AQUÍ_DEBE_IR_TÚ_TOKEN` con el token de tu bot, `guildid` con la ID del servidor, `vulneratedroleid` con la ID del rol para las cuentas vulneradas, `vulneratedchannelid` con la ID del canal que verán las personas con cuentas vulneradas y `welcomeroleid` con la ID del rol que tendrán los nuevos miembros que se unan al servidor.
+
 ## Uso
+
+  - Active el entorno virtual:
+
+    ```sh
+    poetry shell
+    ```
 
   - Para ejecutar el bot, utilice el siguiente comando:
 
