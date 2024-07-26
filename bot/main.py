@@ -67,7 +67,7 @@ class Client(commands.Bot):
                     await self.load_extension(
                         f"cogs.{dir}.{cog}" if dir else f"cogs.{cog}"
                     )
-                    self.cogs_loaded.append(f"{cog}")
+                    self.cogs_loaded.append(f"{dir}.{cog}" if dir else cog)
 
         client.add_view(Verification())
         client.add_view(Autoroles())

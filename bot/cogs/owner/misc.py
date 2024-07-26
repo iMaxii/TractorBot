@@ -8,6 +8,17 @@ class MiscOwner(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
+    @commands.hybrid_command(name="coglist", description="Lista los cogs del bot.")
+    @commands.is_owner()
+    async def coglist(self, ctx: Context) -> None:
+        coglist = "\n- ".join(cog for cog in self.client.cogs_loaded)
+        embed = discord.Embed(
+            title="Lista de Cogs existentes:",
+            description=f"- {coglist}",
+            color=Color.gold(),
+        )
+        await ctx.send(embed=embed)
+
     @commands.hybrid_command(name="shutdown", description="Apaga el bot.")
     @commands.is_owner()
     async def shutdown(self, ctx: Context) -> None:
