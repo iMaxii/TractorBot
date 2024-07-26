@@ -3,7 +3,7 @@
 TractorBot es un bot de Discord que hace un poco de todo escrito en discord.py diseñado para una micro-comunidad. Proporciona varias características y utilidades para mejorar la experiencia de la comunidad.
 
 <details>
-  <summary onclick="toggleTOC()">Mostrar/Ocultar Tabla de Contenidos</summary>
+  <summary>Tabla de Contenidos</summary>
     <ol>
       <li>
         <a href="#primeros-pasos">Primeros Pasos</a>
