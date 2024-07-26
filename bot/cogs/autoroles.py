@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import Context
 
-config_path = f"{os.path.dirname(__file__)}/../../config.json"
+config_path = f"{os.path.dirname(__file__)}/../config.json"
 with open(config_path) as file:
     config = json.load(file)
 

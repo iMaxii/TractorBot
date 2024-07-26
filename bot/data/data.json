@@ -55,7 +55,7 @@
     ],
     "help": {
         "category": {
-            "help1": "- Mi prefijo es: ``!``.\n- Si encuentras algún error/bug mío por favor reportalo en <#1085697203093381242>.\n- ¡Si tienes algúna sugerencia no olvides publicarla en <#1030132195207168010>!",
+            "help1": "Mi prefijo es: ``!``.\nSi encuentras algún error/bug mío por favor reportalo en <#1198668759620124813>.\n¡Si tienes algúna sugerencia no olvides publicarla en <#1010021713158869104>!",
             "help2": "\n- **Comandos útiles**\n - ``Para más información sobre estos comandos utiliza '!help util'``\n- **Comandos tag**\n - ``Para más información sobre estos comandos utiliza '!help tag'``\n- **Comandos de diversión**\n - ``Para más información sobre estos comandos utiliza '!help fun'``",
             "util": "```Para más información de cada comando utiliza !help command <comando>```\n**Lista de comandos útiles:**\n```ping - Envía la latencia del bot``````avatar - Envía el avatar de un usuario``````math - Calcula el resultado de un problema matemático``````snipe - Envía el ultimo mensaje borrado en los ultimos 5 minutos```",
             "tag": "```Para más información de cada comando utiliza !help command <comando>```\n**Lista de comandos tag:**\n```tag - Muestra el contenido de una tag``````tag list - Muestra una lista de todas las tags existentes``````tag add - Crea una nueva tag``````tag edit - Edita el contenido de una tag``````tag delete - Elimina una tag```",

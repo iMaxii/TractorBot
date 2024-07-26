@@ -7,7 +7,7 @@ from discord.ext import commands
 from discord.ext.commands import Context
 from reactionmenu import ViewButton, ViewMenu
 
-tags_path = f"{os.path.dirname(__file__)}/../../data/tags.json"
+tags_path = f"{os.path.dirname(__file__)}/../data/tags.json"
 with open(tags_path, encoding="utf-8") as file:
     tags = json.load(file)
 

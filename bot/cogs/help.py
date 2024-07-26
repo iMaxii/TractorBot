@@ -1,5 +1,5 @@
 import discord
-from discord import Color, app_commands
+from discord import Color
 from discord.ext import commands
 from discord.ext.commands import Context
 from reactionmenu import ViewButton, ViewMenu
@@ -9,8 +9,7 @@ class HelpCog(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @commands.hybrid_group(name="help")
-    @app_commands.describe()
+    @commands.hybrid_group(name="help", description="Envía el menú de ayuda del bot.")
     async def help(self, ctx: Context) -> None:
         menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed, style="Página $/&")
         if ctx.invoked_subcommand is None:
@@ -89,7 +88,7 @@ class HelpCog(commands.Cog):
         )
         await ctx.send(embed=embed)
 
-    @help.command(base="help", name="command", aliases=["com", "c"])
+    @help.command(base="help", name="command")
     async def help_command(self, ctx: Context, *, command: str) -> None:
         if command in self.client.data["help"]["commands"]:
             embed = discord.Embed(
