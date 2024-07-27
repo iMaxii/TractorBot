@@ -1,7 +1,7 @@
 import platform
 
 import discord
-from discord import Color
+from discord import app_commands, Color
 from discord.ext import commands, tasks
 from discord.ext.commands import Context
 
@@ -10,10 +10,11 @@ class Info(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @commands.command(name="userinfo", aliases=["ui", "info", "whois", "who"])
+    @commands.hybrid_command(name="userinfo", description="Muestra la información de un usuario", aliases=["ui", "info", "whois", "who"])
+    @app_commands.describe(usuario="El usuario del que deseas mostrar la información")
     @commands.cooldown(1, 2, commands.BucketType.user)
-    async def userinfo(self, ctx: Context, member: discord.Member = None):
-        user = member or ctx.author
+    async def userinfo(self, ctx: Context, usuario: discord.Member = None):
+        user = usuario or ctx.author
         embed = discord.Embed(color=Color.dark_green())
         embed.set_author(name=user.name, icon_url=user.avatar.url)
         embed.add_field(name="Nombre", value=f"```{user.name}```")
@@ -39,7 +40,7 @@ class Info(commands.Cog):
             )
         await ctx.send(embed=embed)
 
-    @commands.command(name="serverinfo", aliases=["si", "server", "guildinfo", "guild"])
+    @commands.hybrid_command(name="serverinfo", description="Muestra la información del servidor", aliases=["si", "server", "guildinfo", "guild"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def serverinfo(self, ctx: Context):
         embed = discord.Embed(color=Color.dark_green())
@@ -98,7 +99,7 @@ class Info(commands.Cog):
         embed.set_thumbnail(url=ctx.guild.icon.url)
         await ctx.send(embed=embed)
 
-    @commands.command(name="botinfo", aliases=["bi", "bot"])
+    @commands.hybrid_command(name="botinfo", description="Muestra la información del bot", aliases=["bi", "bot"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def botinfo(self, ctx: Context):
         embed = discord.Embed(color=Color.dark_green())
