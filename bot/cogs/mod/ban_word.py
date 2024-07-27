@@ -2,7 +2,7 @@ import json
 import os
 
 import discord
-from discord import Color
+from discord import app_commands, Color
 from discord.ext import commands
 from discord.ext.commands import Context
 from reactionmenu import ViewButton, ViewMenu
@@ -14,9 +14,11 @@ class BanWord(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @commands.command(name="banword", aliases=["bw", "banw"])
+    @commands.hybrid_command(name="banword", description="Agrega una palabra o frase a la lista de palabras prohibidas", aliases=["bw", "banw"])
+    @app_commands.describe(palabra="La palabra o frase que deseas agregar")
     @commands.has_permissions(ban_members=True)
-    async def banword(self, ctx: Context, *, word: str):
+    async def banword(self, ctx: Context, *, palabra: str):
+        word = palabra.lower()
         if word in self.client.words["banned_words"]:
             embed = discord.Embed(
                 description=f"Esa palabra ya está en la lista de palabras prohibidas.",
@@ -33,9 +35,11 @@ class BanWord(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.command(name="unbanword", aliases=["unbw", "unbanw"])
+    @commands.hybrid_command(name="unbanword", description="Elimina una palabra o frase de la lista de palabras prohibidas", aliases=["unbw", "unbanw"])
+    @app_commands.describe(palabra="La palabra o frase que deseas eliminar")
     @commands.has_permissions(ban_members=True)
-    async def unbanword(self, ctx: Context, *, word: str):
+    async def unbanword(self, ctx: Context, *, palabra: str):
+        word = palabra.lower()
         if word in self.client.words["banned_words"]:
             self.client.words["banned_words"].remove(word)
             with open(words_path, "w") as words_file:
@@ -52,7 +56,7 @@ class BanWord(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.command(name="bannedwords", aliases=["bwlist", "bwl"])
+    @commands.hybrid_command(name="bannedwords", description="Muestra la lista de palabras prohibidas", aliases=["bwlist", "bwl"])
     @commands.has_permissions(ban_members=True)
     async def bannedwords(self, ctx: Context):
         bw_list = self.client.words["banned_words"]
