@@ -71,7 +71,7 @@
             "tag add": "Crea una tag.\nUso:\n- ``!tag add <tag> <contenido>``",
             "tag edit": "Edita el contenido de una tag.\nUso:\n- ``!tag edit <tag> <contenido>``",
             "tag delete": "Elimina una tag.\nUso:\n- ``!tag delete <tag>``",
-            "gayrate": "Da un valor de la homosexualidad de un usuario.\nUso:\n- ``!gayrate``\n - ``!gayrate <usuario>``",
+            "gayrate": "Mide el nivel de homosexualidad de un usuario o algo.\nUso:\n- ``!gayrate``\n - ``!gayrate <usuario>``",
             "say": "El bot dirá lo que quieras.\nUso:\n- ``!say <mensaje>``",
             "8ball": "Preguntale a la bola 8 lo que quieras.\nUso:\n- ``!8ball <pregunta>``",
             "owo": "Owofica el texto que quieras.\nUso:\n- ``!owo <texto>``"

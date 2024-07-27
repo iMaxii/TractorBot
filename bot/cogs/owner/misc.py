@@ -15,7 +15,7 @@ class MiscOwner(commands.Cog):
         embed = discord.Embed(
             title="Lista de Cogs existentes:",
             description=f"- {coglist}",
-            color=Color.gold(),
+            color=Color.dark_green(),
         )
         await ctx.send(embed=embed)
 

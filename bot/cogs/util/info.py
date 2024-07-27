@@ -101,7 +101,6 @@ class Info(commands.Cog):
     @commands.command(name="botinfo", aliases=["bi", "bot"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def botinfo(self, ctx: Context):
-        ownerid = self.client.config["ownerid"][0]
         embed = discord.Embed(color=Color.dark_green())
         embed.set_author(
             name=self.client.user.name, icon_url=self.client.user.avatar.url
@@ -113,7 +112,7 @@ class Info(commands.Cog):
             value=f"```{self.client.user.created_at.strftime('%d/%m/%Y %H:%M:%S')}```",
         )
         embed.add_field(
-            name="Dueño", value=f"```{self.client.get_user(ownerid).name}```"
+            name="Dueño", value=f"```{(await self.client.application_info()).owner.name}```"
         )
         embed.add_field(
             name="Versión de discord.py", value=f"```{discord.__version__}```"
@@ -124,7 +123,7 @@ class Info(commands.Cog):
         embed.add_field(
             name="Código fuente", value="```https://github.com/iMaxii/TractorBot```"
         )
-        embed.add_field(name="Licensia", value="```GNU General Public License v3.0```")
+        embed.add_field(name="Licensia", value="```MIT License```")
         await ctx.send(embed=embed)
 
 async def setup(client: commands.Bot) -> None:
