@@ -1,6 +1,6 @@
 # TractorBot
 
-TractorBot es un bot de Discord que hace un poco de todo escrito en discord.py diseñado para una micro-comunidad. Proporciona varias características y utilidades para mejorar la experiencia de la comunidad.
+TractorBot es un bot de Discord que hace un poco de todo, el cual está escrito en discord.py. Está diseñado para una micro-comunidad. Proporciona varias características y utilidades para mejorar la experiencia de la comunidad.
 
 <details>
   <summary>Tabla de Contenidos</summary>
@@ -27,14 +27,14 @@ TractorBot es un bot de Discord que hace un poco de todo escrito en discord.py d
 
 ### Instalación
 
-1. **Clone el repositorio:**
+1. **Clonar el repositorio:**
 
     ```sh
     git clone https://github.com/iMaxii/TractorBot.git
     cd TractorBot
     ```
 
-2. **Instale las dependencias:**
+2. **Instalar las dependencias:**
 
     - Sin las dependencias de desarrollo:
 
@@ -67,19 +67,19 @@ TractorBot es un bot de Discord que hace un poco de todo escrito en discord.py d
 
 ## Uso
 
-  - Active el entorno virtual:
+  - Activa el entorno virtual:
 
     ```sh
     poetry shell
     ```
 
-  - Para ejecutar el bot, utilice el siguiente comando:
+  - Para ejecutar el bot, usa el siguiente comando:
 
     ```sh
     py bot/main.py
     ```
 
-  - Para formatear el código utilizando las dependencias de desarrollo, utilice:
+  - Para formatear el código utilizando las dependencias de desarrollo, utiliza:
 
     ```sh
     poetry run format
@@ -87,15 +87,14 @@ TractorBot es un bot de Discord que hace un poco de todo escrito en discord.py d
 
 ## Roadmap
 
-**Una lista de cambios deseados para la versión 0.1.5**
+**Una lista de cambios para la versión 0.1.1**
 
 - [x] Añadir un README y un CHANGELOG
 - [x] Añadir **Poetry** para manejar dependencias y paquetes
 - [x] Detectar y cargar automáticamente todos los _cogs_ existentes
 - [x] Reorganizar los _cogs_ en diferentes archivos y subcarpetas
 - [x] Añadir el comando `coglist` para que liste todos los _cogs_ existentes
-- [ ] Convertir los comandos normales a `hybrid_commands`
-  - [ ] Arreglar el comando `help` para que acepte valores opcionales
+- [x] Convertir los comandos normales a `hybrid_commands`
 - [ ] Implementar `aiosqlite` para el manejo de bases de datos
 - [ ] Mejorar el mensaje del comando `help`
 
