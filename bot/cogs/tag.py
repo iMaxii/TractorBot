@@ -17,7 +17,6 @@ class TagCog(commands.Cog):
         self.client = client
 
     @commands.hybrid_group(name="tag")
-    @app_commands.describe()
     async def tag(self, ctx: Context, *, tag: str) -> None:
         if ctx.invoked_subcommand is None:
             if tag in tags:
@@ -29,10 +28,21 @@ class TagCog(commands.Cog):
                 )
                 await ctx.send(embed=embed)
 
-    @tag.command(
-        base="tag",
-        name="add",
-    )
+    @tag.command(name="view", description="Envía el contenido de una tag")
+    @app_commands.describe(tag="La tag que deseas ver")
+    async def tag_view(self, ctx: Context, *, tag: str) -> None:
+        if ctx.invoked_subcommand is None:
+            if tag in tags:
+                await ctx.send(tags[tag]["content"])
+            else:
+                embed = discord.Embed(
+                    description=f"No se ha encontrado la tag {tag}.",
+                    color=Color.brand_red(),
+                )
+                await ctx.send(embed=embed)
+
+    @tag.command(name="add", description="Crea una nueva tag")
+    @app_commands.describe(tag="El nombre de la tag", content="El contenido de la tag")
     async def tag_add(self, ctx: Context, tag: str, *, content: str) -> None:
         if tag in tags:
             embed = discord.Embed(
@@ -50,10 +60,8 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(
-        base="tag",
-        name="edit",
-    )
+    @tag.command(base="tag", name="edit", description="Edita el contenido de una tag")
+    @app_commands.describe(tag="El nombre de la tag", content="El contenido de la tag")
     async def tag_edit(self, ctx: Context, tag: str, *, content: str) -> None:
         if tag in tags:
             if ctx.author.id == tags[tag]["author_id"]:
@@ -78,7 +86,8 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="delete", aliases=["remove"])
+    @tag.command(base="tag", name="delete", description="Elimina una tag", aliases=["remove"])
+    @app_commands.describe(tag="El nombre de la tag")
     async def tag_delete(self, ctx: Context, *, tag: str) -> None:
         if tag in tags:
             if ctx.author.id == tags[tag]["author_id"]:
@@ -103,7 +112,7 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="list")
+    @tag.command(base="tag", name="list", description="Muestra todas las tags")
     async def tag_list(self, ctx: Context) -> None:
         paginated_tags = [
             list(tags.items())[i : i + 20] for i in range(0, len(tags), 20)
@@ -136,7 +145,8 @@ class TagCog(commands.Cog):
 
         await menu.start()
 
-    @tag.command(base="tag", name="transfer")
+    @tag.command(base="tag", name="transfer", description="Transfiere la propiedad de una tag")
+    @app_commands.describe(tag="El nombre de la tag", user="El usuario que recibirá la tag")
     async def tag_transfer(self, ctx: Context, tag: str, user: discord.Member) -> None:
         if tag in tags:
             if ctx.author.id == tags[tag]["author_id"]:
@@ -161,7 +171,8 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="info")
+    @tag.command(base="tag", name="info", description="Muestra la información de una tag")
+    @app_commands.describe(tag="El nombre de la tag")
     async def tag_info(self, ctx: Context, *, tag: str) -> None:
         if tag in tags:
             author = await self.client.fetch_user(tags[tag]["author_id"])
@@ -177,8 +188,9 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="forceedit", aliases=["fedit"])
+    @tag.command(base="tag", name="forceedit", description="Edita una tag forzadamente", aliases=["fedit"])
     @commands.has_permissions(ban_members=True)
+    @app_commands.describe(tag="El nombre de la tag", content="El contenido de la tag")
     async def tag_forceedit(self, ctx: Context, tag: str, *, content: str) -> None:
         if tag in tags:
             tags[tag]["content"] = content
@@ -196,8 +208,9 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="forcedelete", aliases=["fdelete", "fremove"])
+    @tag.command(base="tag", name="forcedelete", description="Elimina una tag forzadamente", aliases=["fdelete", "fremove"])
     @commands.has_permissions(ban_members=True)
+    @app_commands.describe(tag="El nombre de la tag")
     async def tag_forcedelete(self, ctx: Context, *, tag: str) -> None:
         if tag in tags:
             del tags[tag]
