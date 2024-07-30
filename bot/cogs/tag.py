@@ -11,15 +11,26 @@ tags_path = f"{os.path.dirname(__file__)}/../data/tags.json"
 with open(tags_path, encoding="utf-8") as file:
     tags = json.load(file)
 
+lowercase_tags = {key.lower(): value for key, value in tags.items()}
+
 
 class TagCog(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
+    async def autocomplete_tag(self, interaction: discord.Interaction, current: str):
+        client = interaction.client
+        choices = [
+            app_commands.Choice(name=key, value=key)
+            for key in client.tags.keys()
+            if current.lower() in key.lower()
+        ]
+        return choices
+
     @commands.hybrid_group(name="tag")
     async def tag(self, ctx: Context, *, tag: str) -> None:
         if ctx.invoked_subcommand is None:
-            if tag in tags:
+            if tag.lower() in lowercase_tags:
                 await ctx.send(tags[tag]["content"])
             else:
                 embed = discord.Embed(
@@ -30,9 +41,10 @@ class TagCog(commands.Cog):
 
     @tag.command(name="view", description="Envía el contenido de una tag")
     @app_commands.describe(tag="La tag que deseas ver")
+    @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_view(self, ctx: Context, *, tag: str) -> None:
         if ctx.invoked_subcommand is None:
-            if tag in tags:
+            if tag.lower() in lowercase_tags:
                 await ctx.send(tags[tag]["content"])
             else:
                 embed = discord.Embed(
@@ -44,7 +56,7 @@ class TagCog(commands.Cog):
     @tag.command(name="add", description="Crea una nueva tag")
     @app_commands.describe(tag="El nombre de la tag", content="El contenido de la tag")
     async def tag_add(self, ctx: Context, tag: str, *, content: str) -> None:
-        if tag in tags:
+        if tag.lower() in lowercase_tags:
             embed = discord.Embed(
                 description=f"La tag {tag} ya existe.", color=Color.brand_red()
             )
@@ -62,8 +74,9 @@ class TagCog(commands.Cog):
 
     @tag.command(base="tag", name="edit", description="Edita el contenido de una tag")
     @app_commands.describe(tag="El nombre de la tag", content="El contenido de la tag")
+    @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_edit(self, ctx: Context, tag: str, *, content: str) -> None:
-        if tag in tags:
+        if tag.lower() in lowercase_tags:
             if ctx.author.id == tags[tag]["author_id"]:
                 tags[tag]["content"] = content
                 with open(tags_path, "w", encoding="utf-8") as f:
@@ -88,8 +101,9 @@ class TagCog(commands.Cog):
 
     @tag.command(base="tag", name="delete", description="Elimina una tag", aliases=["remove"])
     @app_commands.describe(tag="El nombre de la tag")
+    @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_delete(self, ctx: Context, *, tag: str) -> None:
-        if tag in tags:
+        if tag.lower() in lowercase_tags:
             if ctx.author.id == tags[tag]["author_id"]:
                 del tags[tag]
                 with open(tags_path, "w", encoding="utf-8") as f:
@@ -147,8 +161,9 @@ class TagCog(commands.Cog):
 
     @tag.command(base="tag", name="transfer", description="Transfiere la propiedad de una tag")
     @app_commands.describe(tag="El nombre de la tag", user="El usuario que recibirá la tag")
+    @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_transfer(self, ctx: Context, tag: str, user: discord.Member) -> None:
-        if tag in tags:
+        if tag.lower() in lowercase_tags:
             if ctx.author.id == tags[tag]["author_id"]:
                 tags[tag]["author_id"] = user.id
                 with open(tags_path, "w", encoding="utf-8") as f:
@@ -173,8 +188,9 @@ class TagCog(commands.Cog):
 
     @tag.command(base="tag", name="info", description="Muestra la información de una tag")
     @app_commands.describe(tag="El nombre de la tag")
+    @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_info(self, ctx: Context, *, tag: str) -> None:
-        if tag in tags:
+        if tag.lower() in lowercase_tags:
             author = await self.client.fetch_user(tags[tag]["author_id"])
             embed = discord.Embed(color=Color.dark_green())
             embed.set_author(name=tag, icon_url=ctx.guild.icon.url)
@@ -191,8 +207,9 @@ class TagCog(commands.Cog):
     @tag.command(base="tag", name="forceedit", description="Edita una tag forzadamente", aliases=["fedit"])
     @commands.has_permissions(ban_members=True)
     @app_commands.describe(tag="El nombre de la tag", content="El contenido de la tag")
+    @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_forceedit(self, ctx: Context, tag: str, *, content: str) -> None:
-        if tag in tags:
+        if tag.lower() in lowercase_tags:
             tags[tag]["content"] = content
             with open(tags_path, "w", encoding="utf-8") as f:
                 json.dump(tags, f, indent=4)
@@ -211,8 +228,9 @@ class TagCog(commands.Cog):
     @tag.command(base="tag", name="forcedelete", description="Elimina una tag forzadamente", aliases=["fdelete", "fremove"])
     @commands.has_permissions(ban_members=True)
     @app_commands.describe(tag="El nombre de la tag")
+    @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_forcedelete(self, ctx: Context, *, tag: str) -> None:
-        if tag in tags:
+        if tag.lower() in lowercase_tags:
             del tags[tag]
             with open(tags_path, "w", encoding="utf-8") as f:
                 json.dump(tags, f, indent=4)

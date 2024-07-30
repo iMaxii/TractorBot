@@ -80,5 +80,6 @@ client.config = config
 client.data = data
 client.words = words
 client.links = links
+client.tags = tags
 
 client.run(TOKEN)
