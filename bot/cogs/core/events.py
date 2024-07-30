@@ -41,20 +41,6 @@ Cargando cogs..."""
             activity=discord.Game(random.choice(self.client.data["statuses"]))
         )
 
-    @commands.Cog.listener()
-    async def on_message(self, message: discord.Message) -> None:
-        if message.author.bot:
-            return
-        if not message.guild:
-            return
-        if not message.content.startswith(
-            self.client.config["prefix"]
-        ) and not message.content.startswith(f"<@!{self.client.user.id}>"):
-            if message.content.lower().startswith("saluda tractorbot"):
-                await message.channel.send("Qué pasa chupabolas")
-            else:
-                return
-
 
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(EventsCog(client))
