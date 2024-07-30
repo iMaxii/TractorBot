@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord.ext.commands import Context
 from discord.app_commands import Choice
 
-from reactionmenu import ViewButton, ViewMenu
+from bot.utils.pagination import paginate_embed
 
 class HelpCog(commands.Cog):
     def __init__(self, client: commands.Bot):
@@ -36,51 +36,11 @@ class HelpCog(commands.Cog):
     @commands.hybrid_group(name="help")
     async def help(self, ctx: Context) -> None:
         if ctx.invoked_subcommand is None:
-            menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed, style="Página $/&")
-            menu.add_page(self.help_embed(type="general"))
-            menu.add_page(self.help_embed(type="util"))
-            menu.add_page(self.help_embed(type="tag"))
-            menu.add_page(self.help_embed(type="fun"))
-
-            first_button = ViewButton(
-                emoji="⏪", custom_id=ViewButton.ID_GO_TO_FIRST_PAGE
-            )
-            back_button = ViewButton(emoji="◀️", custom_id=ViewButton.ID_PREVIOUS_PAGE)
-            next_button = ViewButton(emoji="▶️", custom_id=ViewButton.ID_NEXT_PAGE)
-            last_button = ViewButton(
-                emoji="⏩", custom_id=ViewButton.ID_GO_TO_LAST_PAGE
-            )
-            menu.add_button(first_button)
-            menu.add_button(back_button)
-            menu.add_button(next_button)
-            menu.add_button(last_button)
-            menu.timeout = 300
-
-            await menu.start()
+            await paginate_embed(ctx, [self.help_embed(type="general"), self.help_embed(type="util"), self.help_embed(type="tag"), self.help_embed(type="fun")])
 
     @help.command(name="general", description="Envía el menú de ayuda del bot.")
     async def help_general(self, ctx: Context) -> None:
-        menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed, style="Página $/&")
-        menu.add_page(self.help_embed(type="general"))
-        menu.add_page(self.help_embed(type="util"))
-        menu.add_page(self.help_embed(type="tag"))
-        menu.add_page(self.help_embed(type="fun"))
-
-        first_button = ViewButton(
-            emoji="⏪", custom_id=ViewButton.ID_GO_TO_FIRST_PAGE
-        )
-        back_button = ViewButton(emoji="◀️", custom_id=ViewButton.ID_PREVIOUS_PAGE)
-        next_button = ViewButton(emoji="▶️", custom_id=ViewButton.ID_NEXT_PAGE)
-        last_button = ViewButton(
-            emoji="⏩", custom_id=ViewButton.ID_GO_TO_LAST_PAGE
-        )
-        menu.add_button(first_button)
-        menu.add_button(back_button)
-        menu.add_button(next_button)
-        menu.add_button(last_button)
-        menu.timeout = 300
-
-        await menu.start()
+        await paginate_embed(ctx, [self.help_embed(type="general"), self.help_embed(type="util"), self.help_embed(type="tag"), self.help_embed(type="fun")])
 
     @help.command(name="util", description="Envía información sobre los comandos útiles")
     async def help_tag(self, ctx: Context) -> None:

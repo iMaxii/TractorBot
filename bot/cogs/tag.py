@@ -5,7 +5,8 @@ import discord
 from discord import Color, app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
-from reactionmenu import ViewButton, ViewMenu
+
+from bot.utils.pagination import paginate_embed
 
 tags_path = f"{os.path.dirname(__file__)}/../data/tags.json"
 with open(tags_path, encoding="utf-8") as file:
@@ -142,22 +143,7 @@ class TagCog(commands.Cog):
             )
             pages.append(embed)
 
-        menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed, style="Página $/&")
-
-        for embed in pages:
-            menu.add_page(embed)
-
-        first_button = ViewButton(emoji="⏪", custom_id=ViewButton.ID_GO_TO_FIRST_PAGE)
-        back_button = ViewButton(emoji="◀️", custom_id=ViewButton.ID_PREVIOUS_PAGE)
-        next_button = ViewButton(emoji="▶️", custom_id=ViewButton.ID_NEXT_PAGE)
-        last_button = ViewButton(emoji="⏩", custom_id=ViewButton.ID_GO_TO_LAST_PAGE)
-        menu.add_button(first_button)
-        menu.add_button(back_button)
-        menu.add_button(next_button)
-        menu.add_button(last_button)
-        menu.timeout = 300
-
-        await menu.start()
+        await paginate_embed(ctx, pages)
 
     @tag.command(base="tag", name="transfer", description="Transfiere la propiedad de una tag")
     @app_commands.describe(tag="El nombre de la tag", user="El usuario que recibirá la tag")
