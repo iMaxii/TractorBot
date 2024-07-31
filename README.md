@@ -87,7 +87,7 @@ TractorBot es un bot de Discord que hace un poco de todo, el cual está escrito 
 
 ## Roadmap
 
-**Una lista de cambios para la versión 0.1.1**
+**Una lista de cambios para la versión 0.2.0**
 
 - [x] Añadir un README y un CHANGELOG
 - [x] Añadir **Poetry** para manejar dependencias y paquetes
@@ -95,7 +95,7 @@ TractorBot es un bot de Discord que hace un poco de todo, el cual está escrito 
 - [x] Reorganizar los _cogs_ en diferentes archivos y subcarpetas
 - [x] Añadir el comando `coglist` para que liste todos los _cogs_ existentes
 - [x] Convertir los comandos normales a `hybrid_commands`
-- [ ] Mejorar los mensajes del comando `help`
+- [x] Mejorar los mensajes del comando `help`
 
 ## Changelog
 
