@@ -95,8 +95,7 @@ TractorBot es un bot de Discord que hace un poco de todo, el cual está escrito 
 - [x] Reorganizar los _cogs_ en diferentes archivos y subcarpetas
 - [x] Añadir el comando `coglist` para que liste todos los _cogs_ existentes
 - [x] Convertir los comandos normales a `hybrid_commands`
-- [ ] Implementar `aiosqlite` para el manejo de bases de datos
-- [ ] Mejorar el mensaje del comando `help`
+- [ ] Mejorar los mensajes del comando `help`
 
 ## Changelog
 

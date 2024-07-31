@@ -54,27 +54,298 @@
         "Muy dudoso"
     ],
     "help": {
-        "category": {
-            "help1": "Mi prefijo es: ``!``.\nSi encuentras algún error/bug mío por favor reportalo en <#1198668759620124813>.\n¡Si tienes algúna sugerencia no olvides publicarla en <#1010021713158869104>!",
-            "help2": "\n- **Comandos útiles**\n - ``Para más información sobre estos comandos utiliza '!help util'``\n- **Comandos tag**\n - ``Para más información sobre estos comandos utiliza '!help tag'``\n- **Comandos de diversión**\n - ``Para más información sobre estos comandos utiliza '!help fun'``",
-            "util": "```Para más información de cada comando utiliza !help command <comando>```\n**Lista de comandos útiles:**\n```ping - Envía la latencia del bot``````avatar - Envía el avatar de un usuario``````math - Calcula el resultado de un problema matemático``````snipe - Envía el ultimo mensaje borrado en los ultimos 5 minutos```",
-            "tag": "```Para más información de cada comando utiliza !help command <comando>```\n**Lista de comandos tag:**\n```tag - Muestra el contenido de una tag``````tag list - Muestra una lista de todas las tags existentes``````tag add - Crea una nueva tag``````tag edit - Edita el contenido de una tag``````tag delete - Elimina una tag```",
-            "fun": "```Para más información de cada comando utiliza !help command <comando>```\n**Lista de comandos de diversión:**\n```gayrate - Da un valor de la homosexualidad de un usuario``````say - El bot dirá lo que quieras``````8ball - Preguntale a la bola 8 lo que quieras``````owo - Owofica el texto que quieras```"
+        "categories": {
+            "general": {
+                "title": "Menú de Ayuda",
+                "description": "Bienvenido al Menú de Ayuda de TractorBot. Puedes usar los prefijos `{prefix}` o `/` para ejecutar comandos. A continuación podrás ver todas las categorías de comandos disponibles.\n\n**Categorías de Comandos**",
+                "fields": {
+                    "util": {
+                        "name": "🛠️ Utilidad",
+                        "value": "Una variedad de comandos útiles para la comunidad.",
+                        "inline": true
+                    },
+                    "fun": {
+                        "name": "🎉 Diversión",
+                        "value": "Comandos para entretenerse y pasar el rato.",
+                        "inline": true
+                    },
+                    "tag": {
+                        "name": "🏷️ Tag",
+                        "value": "Comandos relacionados con las tags personalizadas.",
+                        "inline": true
+                    },
+                    "commands": {
+                        "name": "📝 Cómo Ver Comandos y Detalles Específicos",
+                        "value": "Para ver los comandos de una categoría específica, utiliza:\n```{prefix}help category <util|fun|tag>```\nY para más información sobre un comando específico, utiliza:\n```{prefix}help command <comando>```\nO hazlo usando el prefijo `/` de los comandos slash.",
+                        "inline": false
+                    },
+                    "suggestions": {
+                        "name": "💡 Sugerencias",
+                        "value": "¿Tienes alguna sugerencia? ¡Déjala en el canal <#{suggestions}>!",
+                        "inline": true
+                    },
+                    "problems": {
+                        "name": "👾 Reportar Errores",
+                        "value": "Si encuentras un error o problema, por favor repórtalo en <#{problems}>.",
+                        "inline": true
+                    }
+                }
+            },
+            "util": {
+                "title": "🛠️ Utilidad",
+                "description": "Aquí están los comandos disponibles en la categoría de **Utilidad**.",
+                "fields": {
+                    "ping": {
+                        "name": "`ping`",
+                        "value": "Muestra la latencia del bot.",
+                        "inline": false
+                    },
+                    "math": {
+                        "name": "`math <operación>`",
+                        "value": "Resuelve una operación matemática simple. Ejemplo: `{}math 2+2`.",
+                        "inline": false
+                    },
+                    "snipe": {
+                        "name": "`snipe`",
+                        "value": "Muestra el último mensaje borrado.",
+                        "inline": false
+                    },
+                    "avatar": {
+                        "name": "`avatar [opcional: usuario|id]`",
+                        "value": "Muestra el avatar de un usuario. Si no se especifica un usuario, muestra tu avatar.",
+                        "inline": false
+                    },
+                    "userinfo": {
+                        "name": "`userinfo [opcional: usuario|id]`",
+                        "value": "Muestra información sobre un usuario. Si no se especifica un usuario, muestra tu información.",
+                        "inline": false
+                    },
+                    "serverinfo": {
+                        "name": "`serverinfo`",
+                        "value": "Muestra información sobre el servidor.",
+                        "inline": false
+                    },
+                    "botinfo": {
+                        "name": "`botinfo`",
+                        "value": "Muestra información sobre el bot.",
+                        "inline": false
+                    }
+                }
+            },
+            "fun": {
+                "title": "🎉 Diversión",
+                "description": "Aquí están los comandos disponibles en la categoría de **Diversión**.",
+                "fields": {
+                    "gayrate": {
+                        "name": "`gayrate [opcional: usuario|algo]`",
+                        "value": "Calcula el nivel de la homosexualidad de un usuario o algo.",
+                        "inline": false
+                    },
+                    "say": {
+                        "name": "`say <texto>`",
+                        "value": "Repite lo que escribas. Ejemplo: `{}say ¡Hola!`.",
+                        "inline": false
+                    },
+                    "8ball": {
+                        "name": "`8ball <pregunta>`",
+                        "value": "¡La bola 8 responderá a cualquier pregunta!",
+                        "inline": false
+                    },
+                    "owo": {
+                        "name": "`owo <texto>`",
+                        "value": "Owofica el texto que escribas OwO.",
+                        "inline": false
+                    },
+                    "facts": {
+                        "name": "`facts`",
+                        "value": "Proporciona datos curiosos sobre tractores.",
+                        "inline": false
+                    }
+                }
+            },            
+            "tag": {
+                "title": "🏷️ Tags",
+                "description": "Aquí están los comandos disponibles en la categoría de **Tags**.",
+                "fields": {
+                    "tag view": {
+                        "name": "`tag view <nombre>`",
+                        "value": "Muestra el contenido de una tag especificada.",
+                        "inline": false
+                    },
+                    "tag add": {
+                        "name": "`tag add <nombre> <contenido>`",
+                        "value": "Crea una nueva tag con el nombre y contenido proporcionados.",
+                        "inline": false
+                    },
+                    "tag edit": {
+                        "name": "`tag edit <nombre> <nuevo_contenido>`",
+                        "value": "Edita el contenido de una tag existente.",
+                        "inline": false
+                    },
+                    "tag delete": {
+                        "name": "`tag delete <nombre>`",
+                        "value": "Elimina una tag existente.",
+                        "inline": false
+                    },
+                    "tag list": {
+                        "name": "`tag list`",
+                        "value": "Muestra una lista de todas las tags disponibles.",
+                        "inline": false
+                    },
+                    "tag transfer": {
+                        "name": "`tag transfer <nombre> <nuevo_propietario>`",
+                        "value": "Transfiere la propiedad de una tag a otro usuario.",
+                        "inline": false
+                    },
+                    "tag info": {
+                        "name": "`tag info <nombre>`",
+                        "value": "Muestra información detallada sobre una tag, como su creador, contenido en bruto y (próximamente) fecha de creación.",
+                        "inline": false
+                    }
+                }
+            }            
         },
         "commands": {
-            "ping": "Envía la latencia del bot.\nUso:\n- ``!ping``",
-            "avatar": "Envía el avatar de un usuario.\nUso:\n- ``!avatar``\n - ``!avatar <@usuario>``\n - ``!avatar <id>``",
-            "math": "Calcula el resultado de un problema matemático.\nUso:\n- ``!math <problema>``",
-            "snipe": "Envía el ultimo mensaje borrado en los ultimos 5 minutos.\nUso:\n- ``!snipe``",
-            "tag": "Muestra el contenido de una tag.\nUso:\n- ``!tag <tag>``",
-            "tag list": "Muestra una lista de todas las tags existentes.\nUso:\n- ``!tag list``",
-            "tag add": "Crea una tag.\nUso:\n- ``!tag add <tag> <contenido>``",
-            "tag edit": "Edita el contenido de una tag.\nUso:\n- ``!tag edit <tag> <contenido>``",
-            "tag delete": "Elimina una tag.\nUso:\n- ``!tag delete <tag>``",
-            "gayrate": "Mide el nivel de homosexualidad de un usuario o algo.\nUso:\n- ``!gayrate``\n - ``!gayrate <usuario>``",
-            "say": "El bot dirá lo que quieras.\nUso:\n- ``!say <mensaje>``",
-            "8ball": "Preguntale a la bola 8 lo que quieras.\nUso:\n- ``!8ball <pregunta>``",
-            "owo": "Owofica el texto que quieras.\nUso:\n- ``!owo <texto>``"
+            "util": {
+                "ping": {
+                    "title": "Uso del comando ping",
+                    "description": "Muestra la latencia del bot en milisegundos.",
+                    "usage": "**Ejemplo:** `{prefix}ping`"
+                },
+                "math": {
+                    "title": "Uso del comando math",
+                    "description": "Resuelve una operación matemática simple.",
+                    "field": {
+                        "name": "Uso: `{prefix}math <expresión>`",
+                        "value": "**Ejemplo:** `{prefix}math 2+2`"
+                    }
+                },
+                "snipe": {
+                    "title": "Uso del comando snipe",
+                    "description": "Muestra el último mensaje borrado en el canal.",
+                    "usage": "**Ejemplo:** `{prefix}snipe`"
+                },
+                "avatar": {
+                    "title": "Uso del comando avatar",
+                    "description": "Muestra el avatar de un usuario. Si no se especifica un usuario, muestra tu avatar.",
+                    "field": {
+                        "name": "Uso: `{prefix}avatar [opcional: usuario|id]`",
+                        "value": "**Ejemplo:** `{prefix}avatar @{mention}`"
+                    }
+                },
+                "userinfo": {
+                    "title": "Uso del comando userinfo",
+                    "description": "Muestra información sobre un usuario. Si no se especifica un usuario, muestra tu información.",
+                    "field": {
+                        "name": "Uso: `{prefix}userinfo [opcional: usuario|id]`",
+                        "value": "**Ejemplo:** `{prefix}userinfo @{mention}`"
+                    }
+                },
+                "serverinfo": {
+                    "title": "Uso del comando serverinfo",
+                    "description": "Muestra información sobre el servidor actual.",
+                    "usage": "**Ejemplo:** `{prefix}serverinfo`"
+                },
+                "botinfo": {
+                    "title": "Uso del comando botinfo",
+                    "description": "Muestra información sobre el bot.",
+                    "usage": "**Ejemplo:** `{prefix}botinfo`"
+                }
+                },
+            "fun": {
+                "gayrate": {
+                    "title": "Uso del comando gayrate",
+                    "description": "Calcula un porcentaje de cuán gay es una persona de manera divertida.",
+                    "field": {
+                        "name": "Uso: `{prefix}gayrate [opcional: usuario|id]`",
+                        "value": "**Ejemplo:** `{prefix}gayrate @{mention}`"
+                    }
+                },
+                "say": {
+                    "title": "Uso del comando say",
+                    "description": "Repite lo que escribas.",
+                    "field": {
+                        "name": "Uso: `{prefix}say <mensaje>`",
+                        "value": "**Ejemplo:** `{prefix}say ¡Hola!`"
+                    }
+                },
+                "8ball": {
+                    "title": "Uso del comando 8ball",
+                    "description": "Responde a tus preguntas con una respuesta al estilo de una bola 8 mágica.",
+                    "field": {
+                        "name": "Uso: `{prefix}8ball <pregunta>`",
+                        "value": "**Ejemplo:** `{prefix}8ball ¿Voy a tener suerte hoy?`"
+                    }
+                },
+                "owo": {
+                    "title": "Uso del comando owo",
+                    "description": "Owofica el texto que escribas.",
+                    "field": {
+                        "name": "Uso: `{prefix}owo <texto>`",
+                        "value": "**Ejemplo:** `{prefix}owo Hello`"
+                    }
+                },
+                "facts": {
+                    "title": "Uso del comando facts",
+                    "description": "Proporciona hechos curiosos y divertidos sobre tractores.",
+                    "usage": "**Ejemplo:** `{prefix}facts`"
+                }
+            },
+            "tag": {
+                "tag view": {
+                    "title": "Uso del comando tag view",
+                    "description": "Muestra el contenido de una tag especificada.",
+                    "field": {
+                        "name": "Uso: `{prefix}tag view <nombre>`",
+                        "value": "**Ejemplo:** `{prefix}tag view ejemplo`"
+                    }
+                },
+                "tag add": {
+                    "title": "Uso del comando tag add",
+                    "description": "Crea una nueva tag con el nombre y contenido proporcionados.",
+                    "field": {
+                        "name": "Uso: `{prefix}tag add <nombre> <contenido>`",
+                        "value": "**Ejemplo:** `{prefix}tag add saludo Hola, bienvenidos al servidor!`"
+                    }
+                },
+                "tag edit": {
+                    "title": "Uso del comando tag edit",
+                    "description": "Edita el contenido de una tag existente.",
+                    "field": {
+                        "name": "Uso: `{prefix}tag edit <nombre> <nuevo_contenido>`",
+                        "value": "**Ejemplo:** `{prefix}tag edit saludo ¡Hola a todos!`"
+                    }
+                },
+                "tag delete": {
+                    "title": "Uso del comando tag delete",
+                    "description": "Elimina una tag existente.",
+                    "field": {
+                        "name": "Uso: `{prefix}tag delete <nombre>`",
+                        "value": "**Ejemplo:** `{prefix}tag delete saludo`"
+                    }
+                },
+                "tag list": {
+                    "title": "Uso del comando tag list",
+                    "description": "Muestra una lista de todas las tags disponibles.",
+                    "usage": "**Ejemplo:** `{prefix}tag list`"
+                },
+                "tag transfer": {
+                    "title": "Uso del comando tag transfer",
+                    "description": "Transfiere la propiedad de una tag a otro usuario.",
+                    "field": {
+                        "name": "Uso: `{prefix}tag transfer <nombre> <nuevo_propietario>`",
+                        "value": "**Ejemplo:** `{prefix}tag transfer saludo @{mention}`"
+                    }
+                },
+                "tag info": {
+                    "title": "Uso del comando tag info",
+                    "description": "Muestra información detallada sobre una tag, como su creador y fecha de creación.",
+                    "field": {
+                        "name": "Uso: `{prefix}tag info <nombre>`",
+                        "value": "**Ejemplo:** `{prefix}tag info saludo`"
+                    }
+                }
+            }
         }
     },
     "facts": [
