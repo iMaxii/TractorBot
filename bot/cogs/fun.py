@@ -1,7 +1,7 @@
 import random
 
 import discord
-from discord import app_commands, Color
+from discord import Color, app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
@@ -10,8 +10,14 @@ class FunCog(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @commands.hybrid_command(name="gayrate", description="Mide el nivel de homosexualidad de un usuario o algo", aliases=["gay", "homo", "homosexualidad"])
-    @app_commands.describe(usuario="El usuario o algo del que queramos medir el nivel de homosexualidad")
+    @commands.hybrid_command(
+        name="gayrate",
+        description="Mide el nivel de homosexualidad de un usuario o algo",
+        aliases=["gay", "homo", "homosexualidad"],
+    )
+    @app_commands.describe(
+        usuario="El usuario o algo del que queramos medir el nivel de homosexualidad"
+    )
     async def gayrate_command(self, ctx: Context, *, usuario: str = "") -> None:
         if usuario == "":
             user = ctx.author.display_name
@@ -37,13 +43,19 @@ class FunCog(commands.Cog):
                 )
                 await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="say", description="El bot dirá lo que quieras", aliases=["di"])
+    @commands.hybrid_command(
+        name="say", description="El bot dirá lo que quieras", aliases=["di"]
+    )
     @app_commands.describe(mensaje="El mensaje que deseas enviar")
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def say_command(self, ctx: Context, *, mensaje: str):
         await ctx.send(mensaje)
 
-    @commands.hybrid_command(name="8ball", description="Preguntale a la bola 8 lo que quieras", aliases=["fortune", "ask", "bola8"])
+    @commands.hybrid_command(
+        name="8ball",
+        description="Preguntale a la bola 8 lo que quieras",
+        aliases=["fortune", "ask", "bola8"],
+    )
     @app_commands.describe(pregunta="La pregunta que deseas hacer")
     async def eight_ball_command(self, ctx: Context, *, pregunta: str):
         responses = self.client.data["8ball"]
@@ -54,14 +66,22 @@ class FunCog(commands.Cog):
         )
         await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="owo", description="Owofica el texto que quieras", aliases=["owofy", "owofica", "uwu"])
+    @commands.hybrid_command(
+        name="owo",
+        description="Owofica el texto que quieras",
+        aliases=["owofy", "owofica", "uwu"],
+    )
     @app_commands.describe(texto="El texto que deseas owoficar")
     async def owo(self, ctx: Context, *, texto: str):
         owos = self.client.data["owos"]
         texto = texto.lower().replace("l", "w").replace("r", "w").replace("n", "ñ")
         await ctx.send(f"{texto} {random.choice(owos)}")
 
-    @commands.hybrid_command(name="facts", description="Envía un dato aleatorio", aliases=["fact", "randomfacts", "tractorfacts"])
+    @commands.hybrid_command(
+        name="facts",
+        description="Envía un dato aleatorio",
+        aliases=["fact", "randomfacts", "tractorfacts"],
+    )
     async def facts_command(self, ctx: Context):
         facts = self.client.data["facts"]
         embed = discord.Embed(

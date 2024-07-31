@@ -5,7 +5,12 @@ from reactionmenu import ViewButton, ViewMenu
 
 async def paginate_embed(ctx: Context, pages: list):
     if len(pages) == 0:
-        await ctx.send(embed=discord.Embed(description="¡Oops! Parece que no hay elementos para mostrar.", color=discord.Color.brand_red()))
+        await ctx.send(
+            embed=discord.Embed(
+                description="¡Oops! Parece que no hay elementos para mostrar.",
+                color=discord.Color.brand_red(),
+            )
+        )
         return
     elif len(pages) == 1:
         await ctx.send(embed=pages[0])

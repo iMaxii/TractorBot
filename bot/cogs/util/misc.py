@@ -1,7 +1,7 @@
 import time
 
 import discord
-from discord import app_commands, Color
+from discord import Color, app_commands
 from discord.ext import commands, tasks
 from discord.ext.commands import Context
 
@@ -30,7 +30,9 @@ class MiscUtil(commands.Cog):
                 except KeyError:
                     pass
 
-    @commands.hybrid_command(name="ping", description="Obtiene la latencia actual del bot", aliases=["pong"])
+    @commands.hybrid_command(
+        name="ping", description="Obtiene la latencia actual del bot", aliases=["pong"]
+    )
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def ping_command(self, ctx: Context):
         start_time = time.time()
@@ -40,7 +42,9 @@ class MiscUtil(commands.Cog):
         await ping_message.edit(content=None, embed=embed)
 
     @commands.hybrid_command(
-        name="math", description="Realiza operaciones matemáticas", aliases=["calc", "calculate", "calcula", "mat", "calculadora"]
+        name="math",
+        description="Realiza operaciones matemáticas",
+        aliases=["calc", "calculate", "calcula", "mat", "calculadora"],
     )
     @app_commands.describe(expresión="La operación que deseas resolver")
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -58,7 +62,9 @@ class MiscUtil(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="snipe", description="Muestra el último mensaje borrado")
+    @commands.hybrid_command(
+        name="snipe", description="Muestra el último mensaje borrado"
+    )
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def snipe_message(self, ctx: Context):
         snipe = self.snipes.pop(ctx.channel.id, None)
@@ -81,7 +87,9 @@ class MiscUtil(commands.Cog):
 
             await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="avatar", description="Muestra el avatar de un usuario", aliases=["av"])
+    @commands.hybrid_command(
+        name="avatar", description="Muestra el avatar de un usuario", aliases=["av"]
+    )
     @app_commands.describe(usuario="El usuario del que deseas mostrar el avatar")
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def member_avatar(self, ctx: Context, usuario: discord.Member = None):
@@ -99,6 +107,7 @@ class MiscUtil(commands.Cog):
         embed.set_image(url=avatar_url)
 
         await ctx.reply(embed=embed, mention_author=False)
+
 
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(MiscUtil(client))

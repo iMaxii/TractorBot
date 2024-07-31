@@ -3,8 +3,9 @@ import os
 import sys
 
 import discord
-from bot.cogs.autoroles import Autoroles, Verification
 from discord.ext import commands
+
+from bot.cogs.autoroles import Autoroles, Verification
 
 data_path = f"{os.getcwd()}/bot/data/data.json"
 with open(data_path, encoding="utf-8") as file:

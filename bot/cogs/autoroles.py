@@ -99,7 +99,9 @@ class AutorolesCog(commands.Cog):
         await member.add_roles(role)
 
     @commands.is_owner()
-    @commands.hybrid_command(name="verify", description="Envía un mensaje de verificación")
+    @commands.hybrid_command(
+        name="verify", description="Envía un mensaje de verificación"
+    )
     async def verify(self, ctx: Context):
         embed = discord.Embed(
             title="¡Verificación!",
@@ -108,7 +110,9 @@ class AutorolesCog(commands.Cog):
         await ctx.send(embed=embed, view=Verification())
 
     @commands.is_owner()
-    @commands.hybrid_command(name="autoroles", description="Envía un mensaje de autoroles")
+    @commands.hybrid_command(
+        name="autoroles", description="Envía un mensaje de autoroles"
+    )
     async def autoroles(self, ctx: Context):
         embed = discord.Embed(
             title="¡Autoroles!",

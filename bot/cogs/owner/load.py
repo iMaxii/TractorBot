@@ -65,5 +65,6 @@ class Load(commands.Cog):
         )
         await ctx.send(embed=embed)
 
+
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(Load(client))

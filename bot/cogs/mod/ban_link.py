@@ -2,7 +2,7 @@ import json
 import os
 
 import discord
-from discord import app_commands, Color
+from discord import Color, app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
@@ -15,7 +15,11 @@ class BanLink(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @commands.hybrid_command(name="banlink", description="Agrega un link a la lista de links prohibidos", aliases=["bl", "banl"])
+    @commands.hybrid_command(
+        name="banlink",
+        description="Agrega un link a la lista de links prohibidos",
+        aliases=["bl", "banl"],
+    )
     @app_commands.describe(link="El link que deseas agregar")
     @commands.has_permissions(ban_members=True)
     async def banlink(self, ctx: Context, *, link: str):
@@ -35,7 +39,11 @@ class BanLink(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="unbanlink", description="Elimina un link de la lista de links prohibidos", aliases=["unbl", "unbanl"])
+    @commands.hybrid_command(
+        name="unbanlink",
+        description="Elimina un link de la lista de links prohibidos",
+        aliases=["unbl", "unbanl"],
+    )
     @app_commands.describe(link="El link que deseas eliminar")
     @commands.has_permissions(ban_members=True)
     async def unbanlink(self, ctx: Context, *, link: str):
@@ -55,7 +63,11 @@ class BanLink(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="bannedlinks", description="Muestra la lista de dominios baneados", aliases=["bllist", "bll"])
+    @commands.hybrid_command(
+        name="bannedlinks",
+        description="Muestra la lista de dominios baneados",
+        aliases=["bllist", "bll"],
+    )
     @commands.has_permissions(ban_members=True)
     async def bannedlinks(self, ctx: Context):
         banned_links_list = self.client.links["bad_domains"]

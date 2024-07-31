@@ -101,7 +101,9 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="delete", description="Elimina una tag", aliases=["remove"])
+    @tag.command(
+        base="tag", name="delete", description="Elimina una tag", aliases=["remove"]
+    )
     @app_commands.describe(tag="El nombre de la tag")
     @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_delete(self, ctx: Context, *, tag: str) -> None:
@@ -146,8 +148,12 @@ class TagCog(commands.Cog):
 
         await paginate_embed(ctx, pages)
 
-    @tag.command(base="tag", name="transfer", description="Transfiere la propiedad de una tag")
-    @app_commands.describe(tag="El nombre de la tag", user="El usuario que recibirá la tag")
+    @tag.command(
+        base="tag", name="transfer", description="Transfiere la propiedad de una tag"
+    )
+    @app_commands.describe(
+        tag="El nombre de la tag", user="El usuario que recibirá la tag"
+    )
     @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_transfer(self, ctx: Context, tag: str, user: discord.Member) -> None:
         if self._get_original_tag(tag) in tags:
@@ -173,15 +179,22 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="info", description="Muestra la información de una tag")
+    @tag.command(
+        base="tag", name="info", description="Muestra la información de una tag"
+    )
     @app_commands.describe(tag="El nombre de la tag")
     @app_commands.autocomplete(tag=autocomplete_tag)
     async def tag_info(self, ctx: Context, *, tag: str) -> None:
         if self._get_original_tag(tag) in tags:
-            author = await self.client.fetch_user(tags[self._get_original_tag(tag)]["author_id"])
+            author = await self.client.fetch_user(
+                tags[self._get_original_tag(tag)]["author_id"]
+            )
             embed = discord.Embed(color=Color.dark_green())
             embed.set_author(name=tag, icon_url=ctx.guild.icon.url)
-            embed.add_field(name="Contenido", value=f"```{tags[self._get_original_tag(tag)]['content']}```")
+            embed.add_field(
+                name="Contenido",
+                value=f"```{tags[self._get_original_tag(tag)]['content']}```",
+            )
             embed.add_field(name="Autor", value=f"```{author}```")
             await ctx.send(embed=embed)
         else:
@@ -191,7 +204,12 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="forceedit", description="Edita una tag forzadamente", aliases=["fedit"])
+    @tag.command(
+        base="tag",
+        name="forceedit",
+        description="Edita una tag forzadamente",
+        aliases=["fedit"],
+    )
     @commands.has_permissions(ban_members=True)
     @app_commands.describe(tag="El nombre de la tag", content="El contenido de la tag")
     @app_commands.autocomplete(tag=autocomplete_tag)
@@ -212,7 +230,12 @@ class TagCog(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-    @tag.command(base="tag", name="forcedelete", description="Elimina una tag forzadamente", aliases=["fdelete", "fremove"])
+    @tag.command(
+        base="tag",
+        name="forcedelete",
+        description="Elimina una tag forzadamente",
+        aliases=["fdelete", "fremove"],
+    )
     @commands.has_permissions(ban_members=True)
     @app_commands.describe(tag="El nombre de la tag")
     @app_commands.autocomplete(tag=autocomplete_tag)

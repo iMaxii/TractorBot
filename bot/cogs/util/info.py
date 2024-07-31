@@ -1,7 +1,7 @@
 import platform
 
 import discord
-from discord import app_commands, Color
+from discord import Color, app_commands
 from discord.ext import commands, tasks
 from discord.ext.commands import Context
 
@@ -10,7 +10,11 @@ class Info(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @commands.hybrid_command(name="userinfo", description="Muestra la información de un usuario", aliases=["ui", "info", "whois", "who"])
+    @commands.hybrid_command(
+        name="userinfo",
+        description="Muestra la información de un usuario",
+        aliases=["ui", "info", "whois", "who"],
+    )
     @app_commands.describe(usuario="El usuario del que deseas mostrar la información")
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def userinfo(self, ctx: Context, usuario: discord.Member = None):
@@ -40,7 +44,11 @@ class Info(commands.Cog):
             )
         await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="serverinfo", description="Muestra la información del servidor", aliases=["si", "server", "guildinfo", "guild"])
+    @commands.hybrid_command(
+        name="serverinfo",
+        description="Muestra la información del servidor",
+        aliases=["si", "server", "guildinfo", "guild"],
+    )
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def serverinfo(self, ctx: Context):
         embed = discord.Embed(color=Color.dark_green())
@@ -99,7 +107,11 @@ class Info(commands.Cog):
         embed.set_thumbnail(url=ctx.guild.icon.url)
         await ctx.send(embed=embed)
 
-    @commands.hybrid_command(name="botinfo", description="Muestra la información del bot", aliases=["bi", "bot"])
+    @commands.hybrid_command(
+        name="botinfo",
+        description="Muestra la información del bot",
+        aliases=["bi", "bot"],
+    )
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def botinfo(self, ctx: Context):
         embed = discord.Embed(color=Color.dark_green())
@@ -113,7 +125,8 @@ class Info(commands.Cog):
             value=f"```{self.client.user.created_at.strftime('%d/%m/%Y %H:%M:%S')}```",
         )
         embed.add_field(
-            name="Dueño", value=f"```{(await self.client.application_info()).owner.name}```"
+            name="Dueño",
+            value=f"```{(await self.client.application_info()).owner.name}```",
         )
         embed.add_field(
             name="Versión de discord.py", value=f"```{discord.__version__}```"
@@ -126,6 +139,7 @@ class Info(commands.Cog):
         )
         embed.add_field(name="Licensia", value="```MIT License```")
         await ctx.send(embed=embed)
+
 
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(Info(client))
