@@ -13,39 +13,29 @@ class FunCog(commands.Cog):
     @commands.hybrid_command(name="gayrate", description="Mide el nivel de homosexualidad de un usuario o algo", aliases=["gay", "homo", "homosexualidad"])
     @app_commands.describe(usuario="El usuario o algo del que queramos medir el nivel de homosexualidad")
     async def gayrate_command(self, ctx: Context, *, usuario: str = "") -> None:
-        user_id = 683139977848029206
-        if ctx.message.mentions and ctx.message.mentions[0].id == user_id:
-            user = ctx.message.mentions[0].display_name
-            rate = random.randint(100, 300)
+        if usuario == "":
+            user = ctx.author.display_name
+            rate = random.randint(0, 100)
             embed = discord.Embed(
                 description=f"{user} es un {rate}% gay", color=Color.dark_green()
             )
             await ctx.send(embed=embed)
-
         else:
-            if usuario == "":
-                user = ctx.author.display_name
+            try:
+                mention = ctx.message.mentions[0]
+                user = mention.display_name
                 rate = random.randint(0, 100)
                 embed = discord.Embed(
-                    description=f"{user} es un {rate}% gay", color=Color.dark_green()
+                    description=f"{user} es un {rate}% gay",
+                    color=Color.dark_green(),
                 )
                 await ctx.send(embed=embed)
-            else:
-                try:
-                    mention = ctx.message.mentions[0]
-                    user = mention.display_name
-                    rate = random.randint(0, 100)
-                    embed = discord.Embed(
-                        description=f"{user} es un {rate}% gay",
-                        color=Color.dark_green(),
-                    )
-                    await ctx.send(embed=embed)
-                except IndexError:
-                    rate = random.randint(0, 100)
-                    embed = discord.Embed(
-                        description=f"{usuario} es un {rate}% gay", color=Color.dark_green()
-                    )
-                    await ctx.send(embed=embed)
+            except IndexError:
+                rate = random.randint(0, 100)
+                embed = discord.Embed(
+                    description=f"{usuario} es un {rate}% gay", color=Color.dark_green()
+                )
+                await ctx.send(embed=embed)
 
     @commands.hybrid_command(name="say", description="El bot dirá lo que quieras", aliases=["di"])
     @app_commands.describe(mensaje="El mensaje que deseas enviar")

@@ -48,7 +48,7 @@ class ErrorsCog(commands.Cog):
             else:
                 print(error)
                 embed = discord.Embed(
-                    description="¡Vaya! Parece que ha ocurrido un error al ejecutar ese comando.\nPor favor contacta a administración o abre un _issue_ en https://github.com/iMaxii/TractorBot",
+                    description=f"¡Vaya! Parece que ha ocurrido un error al ejecutar ese comando.\nPor favor contacta a administración o pide ayuda en <#{self.client.config['supportchannelid']}>si el error persiste.",
                     color=Color.brand_red(),
                 )
                 await ctx.send(embed=embed)

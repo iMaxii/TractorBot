@@ -34,7 +34,7 @@ class HelpCog(commands.Cog):
         if type == "general":
             embed = discord.Embed(title=self.client.data['help']['categories']['general']['title'], description=self.client.data['help']['categories']['general']['description'].format(prefix = self.client.config['prefix']), color=Color.dark_green())
             for key, value in self.client.data['help']['categories']['general']['fields'].items():
-                embed.add_field(name=value['name'], value=value['value'].format(prefix = self.client.config['prefix'], suggestions = self.client.config['suggestionschannelid'], problems = self.client.config['problemschannelid']), inline=value['inline'])
+                embed.add_field(name=value['name'], value=value['value'].format(prefix = self.client.config['prefix'], suggestions = self.client.config['suggestionschannelid'], problems = self.client.config['supportchannelid']), inline=value['inline'])
         elif type == "util":
             embed = discord.Embed(title=self.client.data['help']['categories']['util']['title'], description=self.client.data['help']['categories']['util']['description'], color=Color.dark_green())
             for key, value in self.client.data['help']['categories']['util']['fields'].items():

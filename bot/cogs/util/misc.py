@@ -42,13 +42,13 @@ class MiscUtil(commands.Cog):
     @commands.hybrid_command(
         name="math", description="Realiza operaciones matemáticas", aliases=["calc", "calculate", "calcula", "mat", "calculadora"]
     )
-    @app_commands.describe(equación="La operación que deseas resolver")
+    @app_commands.describe(expresión="La operación que deseas resolver")
     @commands.cooldown(1, 2, commands.BucketType.user)
-    async def math_command(self, ctx: Context, *, equación: str):
+    async def math_command(self, ctx: Context, *, expresión: str):
         try:
-            result = eval(equación)
+            result = eval(expresión)
             embed = discord.Embed(
-                description=f"{equación} = {result}", color=Color.dark_green()
+                description=f"{expresión} = {result}", color=Color.dark_green()
             )
             await ctx.send(embed=embed)
         except:
