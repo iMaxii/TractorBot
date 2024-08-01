@@ -9,7 +9,7 @@
 
 ### Cambiado
 
-- Nodificado el mensaje impreso al inicializar el bot.
+- Modificado el mensaje impreso al inicializar el bot.
 - Actualizada la sección del README con el contenido de `example.config.json`.
 - Actualizado el roadmap para incluir planes para la versión 0.3.0.
 
