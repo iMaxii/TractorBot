@@ -54,16 +54,27 @@ TractorBot es un bot de Discord que hace un poco de todo, el cual está escrito 
 
     ```json
     {
-        "token": "AQUÍ_DEBE_IR_TÚ_TOKEN",
+        "token": "AQUÍ DEBE IR TU TOKEN",
         "prefix": "!",
         "guildid": 1234567890,
         "vulneratedroleid": 1234567890,
         "welcomeroleid": 1234567890,
-        "vulneratedchannelid": 1234567890
+        "vulneratedchannelid": 1234567890,
+        "suggestionschannelid": 1234567890,
+        "supportchannelid": 1234567890
     }
     ```
 
-    > Reemplaza `AQUÍ_DEBE_IR_TÚ_TOKEN` con el token de tu bot, `guildid` con la ID del servidor, `vulneratedroleid` con la ID del rol para las cuentas vulneradas, `vulneratedchannelid` con la ID del canal que verán las personas con cuentas vulneradas y `welcomeroleid` con la ID del rol que tendrán los nuevos miembros que se unan al servidor.
+    | Clave                | Descripción                                          |
+    | -------------------- | ---------------------------------------------------- |
+    | token                | Reemplaza con el token de tu bot                     |
+    | prefix               | Define el prefijo para los comandos normales del bot |
+    | guildid              | ID del servidor donde se utilizará el bot            |
+    | vulneratedroleid     | ID del rol asignado a las cuentas vulneradas         |
+    | welcomeroleid        | ID del rol asignado a los miembros nuevos            |
+    | vulneratedchannelid  | ID del canal visible para las cuentas vulneradas     |
+    | suggestionschannelid | ID del canal donde se recibirán sugerencias          |
+    | supportchannelid     | ID del canal de soporte para el servidor             |
 
 ## Uso
 
@@ -87,15 +98,11 @@ TractorBot es un bot de Discord que hace un poco de todo, el cual está escrito 
 
 ## Roadmap
 
-**Una lista de cambios para la versión 0.2.0**
+**Una lista de cambios para la versión 0.3.0**
 
-- [x] Añadir un README y un CHANGELOG
-- [x] Añadir **Poetry** para manejar dependencias y paquetes
-- [x] Detectar y cargar automáticamente todos los _cogs_ existentes
-- [x] Reorganizar los _cogs_ en diferentes archivos y subcarpetas
-- [x] Añadir el comando `coglist` para que liste todos los _cogs_ existentes
-- [x] Convertir los comandos normales a `hybrid_commands`
-- [x] Mejorar los mensajes del comando `help`
+- [ ] Utilizar un _dropdown_ para ver las páginas en el comando `help category general`
+- [ ] Implementar una nueva serie de comandos `jiudadeath` con nuevas funcualidades
+- [ ] Reemplazar las bases de datos JSON por una base de datos SQL usando aiosqlite
 
 ## Changelog
 
