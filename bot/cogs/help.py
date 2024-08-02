@@ -1,11 +1,30 @@
+from typing import Any
 import discord
 from discord import Color, app_commands
-from discord.app_commands import Choice
 from discord.ext import commands
 from discord.ext.commands import Context
 
 from bot.utils.pagination import paginate_embed
 
+class Dropdown(discord.ui.Select):
+    def __init__(self, pages):
+
+        options = [
+            discord.SelectOption(label='General', description='Muestra el menú de ayuda inicial', emoji='🚀'),
+            discord.SelectOption(label='Util', description='Muestra el menú de ayuda con los comandos de utilidad', emoji='🛠️'),
+            discord.SelectOption(label='Fun', description='Muestra el menú de ayuda con los comandos de diversión', emoji='🎉'),
+            discord.SelectOption(label='Tag', description='Muestra el menú de ayuda con los comandos tag', emoji='🏷️'),
+        ]
+
+        self.pages = pages
+
+        super().__init__(placeholder='Escoge un página del menú de ayuda', min_values=1, max_values=1, options=options)
+
+    async def callback(self, interaction: discord.Interaction):
+        if not interaction.response.is_done():
+            await interaction.response.edit_message(embed=self.pages[self.values[0].lower()])
+        else:
+            await interaction.followup.edit_message(interaction.message.id, embed=self.pages[self.values[0].lower()])
 
 class HelpCog(commands.Cog):
     def __init__(self, client: commands.Bot):
@@ -71,8 +90,7 @@ class HelpCog(commands.Cog):
             ].items():
                 embed.add_field(
                     name=value["name"],
-                    value=value["value"].format(self.client.config["prefix"]),
-                    inline=value["inline"],
+                    value=f"{value['value']}\n".format(self.client.config["prefix"])
                 )
         elif type == "fun":
             embed = discord.Embed(
@@ -87,8 +105,7 @@ class HelpCog(commands.Cog):
             ].items():
                 embed.add_field(
                     name=value["name"],
-                    value=value["value"].format(self.client.config["prefix"]),
-                    inline=value["inline"],
+                    value=value["value"].format(self.client.config["prefix"])
                 )
         elif type == "tag":
             embed = discord.Embed(
@@ -103,8 +120,7 @@ class HelpCog(commands.Cog):
             ].items():
                 embed.add_field(
                     name=value["name"],
-                    value=value["value"].format(self.client.config["prefix"]),
-                    inline=value["inline"],
+                    value=value["value"].format(self.client.config["prefix"])
                 )
         elif type == "command":
             command_data = self.client.data["help"]["commands"]
@@ -145,15 +161,18 @@ class HelpCog(commands.Cog):
     @commands.hybrid_group(name="help")
     async def help(self, ctx: Context) -> None:
         if ctx.invoked_subcommand is None:
-            await paginate_embed(
-                ctx,
-                [
-                    self.help_embed(type="general"),
-                    self.help_embed(type="util"),
-                    self.help_embed(type="fun"),
-                    self.help_embed(type="tag"),
-                ],
-            )
+            view = discord.ui.View()
+
+            pages = {
+                "general": self.help_embed(type="general"),
+                "util": self.help_embed(type="util"),
+                "fun": self.help_embed(type="fun"),
+                "tag": self.help_embed(type="tag"),
+            }
+
+            view.add_item(item=Dropdown(pages=pages))
+
+            await ctx.send(embed=self.help_embed(type="general"), view=view)
 
     @help.command(name="category", description="Envía el menú de ayuda del bot.")
     @app_commands.describe(
@@ -164,15 +183,18 @@ class HelpCog(commands.Cog):
         c = categoría.lower()
         if c in self.client.data["help"]["categories"]:
             if c == "general":
-                await paginate_embed(
-                    ctx,
-                    [
-                        self.help_embed(type="general"),
-                        self.help_embed(type="util"),
-                        self.help_embed(type="tag"),
-                        self.help_embed(type="fun"),
-                    ],
-                )
+                view = discord.ui.View()
+
+                pages = {
+                    "general": self.help_embed(type="general"),
+                    "util": self.help_embed(type="util"),
+                    "fun": self.help_embed(type="fun"),
+                    "tag": self.help_embed(type="tag"),
+                }
+
+                view.add_item(item=Dropdown(pages=pages))
+
+                await ctx.send(embed=self.help_embed(type="general"), view=view)
             else:
                 if c != "command":
                     await ctx.send(embed=self.help_embed(type=c))

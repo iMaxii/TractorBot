@@ -97,38 +97,31 @@
                 "fields": {
                     "ping": {
                         "name": "`ping`",
-                        "value": "Muestra la latencia del bot.",
-                        "inline": false
+                        "value": "Muestra la latencia del bot."
                     },
                     "math": {
                         "name": "`math <operación>`",
-                        "value": "Resuelve una operación matemática simple. Ejemplo: `{}math 2+2`.",
-                        "inline": false
+                        "value": "Resuelve una operación matemática simple. Ejemplo: `{}math 2+2`."
                     },
                     "snipe": {
                         "name": "`snipe`",
-                        "value": "Muestra el último mensaje borrado.",
-                        "inline": false
+                        "value": "Muestra el último mensaje borrado."
                     },
                     "avatar": {
                         "name": "`avatar [opcional: usuario|id]`",
-                        "value": "Muestra el avatar de un usuario. Si no se especifica un usuario, muestra tu avatar.",
-                        "inline": false
+                        "value": "Muestra el avatar de un usuario. Si no se especifica un usuario, muestra tu avatar."
                     },
                     "userinfo": {
                         "name": "`userinfo [opcional: usuario|id]`",
-                        "value": "Muestra información sobre un usuario. Si no se especifica un usuario, muestra tu información.",
-                        "inline": false
+                        "value": "Muestra información sobre un usuario. Si no se especifica un usuario, muestra tu información."
                     },
                     "serverinfo": {
                         "name": "`serverinfo`",
-                        "value": "Muestra información sobre el servidor.",
-                        "inline": false
+                        "value": "Muestra información sobre el servidor."
                     },
                     "botinfo": {
                         "name": "`botinfo`",
-                        "value": "Muestra información sobre el bot.",
-                        "inline": false
+                        "value": "Muestra información sobre el bot."
                     }
                 }
             },
@@ -138,28 +131,23 @@
                 "fields": {
                     "gayrate": {
                         "name": "`gayrate [opcional: usuario|algo]`",
-                        "value": "Calcula el nivel de la homosexualidad de un usuario o algo.",
-                        "inline": false
+                        "value": "Calcula el nivel de la homosexualidad de un usuario o algo."
                     },
                     "say": {
                         "name": "`say <texto>`",
-                        "value": "Repite lo que escribas. Ejemplo: `{}say ¡Hola!`.",
-                        "inline": false
+                        "value": "Repite lo que escribas. Ejemplo: `{}say ¡Hola!`."
                     },
                     "8ball": {
                         "name": "`8ball <pregunta>`",
-                        "value": "¡La bola 8 responderá a cualquier pregunta!",
-                        "inline": false
+                        "value": "¡La bola 8 responderá a cualquier pregunta!"
                     },
                     "owo": {
                         "name": "`owo <texto>`",
-                        "value": "Owofica el texto que escribas OwO.",
-                        "inline": false
+                        "value": "Owofica el texto que escribas OwO."
                     },
                     "facts": {
                         "name": "`facts`",
-                        "value": "Proporciona datos curiosos sobre tractores.",
-                        "inline": false
+                        "value": "Proporciona datos curiosos sobre tractores."
                     }
                 }
             },            
@@ -169,38 +157,31 @@
                 "fields": {
                     "tag view": {
                         "name": "`tag view <nombre>`",
-                        "value": "Muestra el contenido de una tag especificada.",
-                        "inline": false
+                        "value": "Muestra el contenido de una tag especificada."
                     },
                     "tag add": {
                         "name": "`tag add <nombre> <contenido>`",
-                        "value": "Crea una nueva tag con el nombre y contenido proporcionados.",
-                        "inline": false
+                        "value": "Crea una nueva tag con el nombre y contenido proporcionados."
                     },
                     "tag edit": {
                         "name": "`tag edit <nombre> <nuevo_contenido>`",
-                        "value": "Edita el contenido de una tag existente.",
-                        "inline": false
+                        "value": "Edita el contenido de una tag existente."
                     },
                     "tag delete": {
                         "name": "`tag delete <nombre>`",
-                        "value": "Elimina una tag existente.",
-                        "inline": false
+                        "value": "Elimina una tag existente."
                     },
                     "tag list": {
                         "name": "`tag list`",
-                        "value": "Muestra una lista de todas las tags disponibles.",
-                        "inline": false
+                        "value": "Muestra una lista de todas las tags disponibles."
                     },
                     "tag transfer": {
                         "name": "`tag transfer <nombre> <nuevo_propietario>`",
-                        "value": "Transfiere la propiedad de una tag a otro usuario.",
-                        "inline": false
+                        "value": "Transfiere la propiedad de una tag a otro usuario."
                     },
                     "tag info": {
                         "name": "`tag info <nombre>`",
-                        "value": "Muestra información detallada sobre una tag, como su creador, contenido en bruto y (próximamente) fecha de creación.",
-                        "inline": false
+                        "value": "Muestra información detallada sobre una tag, como su creador, contenido en bruto y (próximamente) fecha de creación."
                     }
                 }
             }            
