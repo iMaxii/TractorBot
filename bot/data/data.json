@@ -478,10 +478,10 @@
                 "rarity": "common"
             },
             {
-            "id": "car",
-                    "name": "Mira a ambos lados antes de cruzar",
-                    "event": "Un auto pasa a 200km/h y atropella a Jiuda.",
-                    "rarity": "common"
+                "id": "car",
+                "name": "Mira a ambos lados antes de cruzar",
+                "event": "Un auto pasa a 200km/h y atropella a Jiuda.",
+                "rarity": "common"
             },
             {
                 "id": "killer",
