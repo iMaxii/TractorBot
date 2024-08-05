@@ -98,11 +98,9 @@ TractorBot es un bot de Discord que hace un poco de todo, el cual está escrito 
 
 ## Roadmap
 
-**Una lista de cambios para la versión 0.3.0**
+**Una lista de cambios para la versión 0.4.0**
 
-- [x] Utilizar un _dropdown_ para ver las páginas en el comando `help category general`
-- [x] Implementar una nueva serie de comandos `jiudadeath` con nuevas funcionalidades
-- [x] Empezar a utilizar la base de datos de SQLite
+- [ ] Varias cositas ;)
 
 ## Changelog
 

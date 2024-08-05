@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.3.0 (2024-08-05)
+
+### Añadido
+- Añadida una serie de comandos `kill`, `deaths`, `deathinfo` para la categoría _Jiuda_.
+- Añadido un comando `adddeath` para que los administadores puedan agregar una muerte.
+- Empezado a utilizar `aiosqlite` para el manejo de datos.
+  - Creado un archivo `schema.sql` para la creación de la base de datos.
+  - Creado un archivo `db_manager.py` para el manejo de la base de datos.
+
+### Cambiado
+- Reemplazada la paginación del comando `help category general` por un dropdown.
+
 ## v0.2.1 (2024-08-01)
 
 ### Añadido
