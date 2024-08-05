@@ -74,6 +74,11 @@
                         "value": "Comandos relacionados con las tags personalizadas.",
                         "inline": true
                     },
+                    "jiuda": {
+                        "name": "🗡️ Jiuda",
+                        "value": "Comandos para disfrutar de... acabar con Jiuda.",
+                        "inline": true
+                    },
                     "commands": {
                         "name": "📝 Cómo Ver Comandos y Detalles Específicos",
                         "value": "Para ver los comandos de una categoría específica, utiliza:\n```{prefix}help category <util|fun|tag>```\nY para más información sobre un comando específico, utiliza:\n```{prefix}help command <comando>```\nO hazlo usando el prefijo `/` de los comandos slash.",
@@ -97,38 +102,31 @@
                 "fields": {
                     "ping": {
                         "name": "`ping`",
-                        "value": "Muestra la latencia del bot.",
-                        "inline": false
+                        "value": "Muestra la latencia del bot."
                     },
                     "math": {
                         "name": "`math <operación>`",
-                        "value": "Resuelve una operación matemática simple. Ejemplo: `{}math 2+2`.",
-                        "inline": false
+                        "value": "Resuelve una operación matemática simple. Ejemplo: `{}math 2+2`."
                     },
                     "snipe": {
                         "name": "`snipe`",
-                        "value": "Muestra el último mensaje borrado.",
-                        "inline": false
+                        "value": "Muestra el último mensaje borrado."
                     },
                     "avatar": {
                         "name": "`avatar [opcional: usuario|id]`",
-                        "value": "Muestra el avatar de un usuario. Si no se especifica un usuario, muestra tu avatar.",
-                        "inline": false
+                        "value": "Muestra el avatar de un usuario. Si no se especifica un usuario, muestra tu avatar."
                     },
                     "userinfo": {
                         "name": "`userinfo [opcional: usuario|id]`",
-                        "value": "Muestra información sobre un usuario. Si no se especifica un usuario, muestra tu información.",
-                        "inline": false
+                        "value": "Muestra información sobre un usuario. Si no se especifica un usuario, muestra tu información."
                     },
                     "serverinfo": {
                         "name": "`serverinfo`",
-                        "value": "Muestra información sobre el servidor.",
-                        "inline": false
+                        "value": "Muestra información sobre el servidor."
                     },
                     "botinfo": {
                         "name": "`botinfo`",
-                        "value": "Muestra información sobre el bot.",
-                        "inline": false
+                        "value": "Muestra información sobre el bot."
                     }
                 }
             },
@@ -138,28 +136,23 @@
                 "fields": {
                     "gayrate": {
                         "name": "`gayrate [opcional: usuario|algo]`",
-                        "value": "Calcula el nivel de la homosexualidad de un usuario o algo.",
-                        "inline": false
+                        "value": "Calcula el nivel de la homosexualidad de un usuario o algo."
                     },
                     "say": {
                         "name": "`say <texto>`",
-                        "value": "Repite lo que escribas. Ejemplo: `{}say ¡Hola!`.",
-                        "inline": false
+                        "value": "Repite lo que escribas. Ejemplo: `{}say ¡Hola!`."
                     },
                     "8ball": {
                         "name": "`8ball <pregunta>`",
-                        "value": "¡La bola 8 responderá a cualquier pregunta!",
-                        "inline": false
+                        "value": "¡La bola 8 responderá a cualquier pregunta!"
                     },
                     "owo": {
                         "name": "`owo <texto>`",
-                        "value": "Owofica el texto que escribas OwO.",
-                        "inline": false
+                        "value": "Owofica el texto que escribas OwO."
                     },
                     "facts": {
                         "name": "`facts`",
-                        "value": "Proporciona datos curiosos sobre tractores.",
-                        "inline": false
+                        "value": "Proporciona datos curiosos sobre tractores."
                     }
                 }
             },            
@@ -169,41 +162,52 @@
                 "fields": {
                     "tag view": {
                         "name": "`tag view <nombre>`",
-                        "value": "Muestra el contenido de una tag especificada.",
-                        "inline": false
+                        "value": "Muestra el contenido de una tag especificada."
                     },
                     "tag add": {
                         "name": "`tag add <nombre> <contenido>`",
-                        "value": "Crea una nueva tag con el nombre y contenido proporcionados.",
-                        "inline": false
+                        "value": "Crea una nueva tag con el nombre y contenido proporcionados."
                     },
                     "tag edit": {
                         "name": "`tag edit <nombre> <nuevo_contenido>`",
-                        "value": "Edita el contenido de una tag existente.",
-                        "inline": false
+                        "value": "Edita el contenido de una tag existente."
                     },
                     "tag delete": {
                         "name": "`tag delete <nombre>`",
-                        "value": "Elimina una tag existente.",
-                        "inline": false
+                        "value": "Elimina una tag existente."
                     },
                     "tag list": {
                         "name": "`tag list`",
-                        "value": "Muestra una lista de todas las tags disponibles.",
-                        "inline": false
+                        "value": "Muestra una lista de todas las tags disponibles."
                     },
                     "tag transfer": {
                         "name": "`tag transfer <nombre> <nuevo_propietario>`",
-                        "value": "Transfiere la propiedad de una tag a otro usuario.",
-                        "inline": false
+                        "value": "Transfiere la propiedad de una tag a otro usuario."
                     },
                     "tag info": {
                         "name": "`tag info <nombre>`",
-                        "value": "Muestra información detallada sobre una tag, como su creador, contenido en bruto y (próximamente) fecha de creación.",
-                        "inline": false
+                        "value": "Muestra información detallada sobre una tag, como su creador, contenido en bruto y (próximamente) fecha de creación."
                     }
                 }
-            }            
+            },
+            "jiuda": {
+                "title": "🗡️ Jiuda",
+                "description": "Aquí están los comandos disponibles en la categoría de **Jiuda**.",
+                "fields": {
+                    "kill": {
+                        "name": "`kill`",
+                        "value": "Acaba con Jiuda de mil y un maneras diferentes."
+                    },
+                    "deaths": {
+                        "name": "`deaths`",
+                        "value": "Muestra tus muertes obtenidas."
+                    },
+                    "deathinfo": {
+                        "name": "`deathinfo <id>`",
+                        "value": "Muestra la información de una muerte."
+                    }
+                }
+            }
         },
         "commands": {
             "util": {
@@ -251,7 +255,7 @@
                     "description": "Muestra información sobre el bot.",
                     "usage": "**Ejemplo:** `{prefix}botinfo`"
                 }
-                },
+            },
             "fun": {
                 "gayrate": {
                     "title": "Uso del comando gayrate",
@@ -345,6 +349,26 @@
                         "value": "**Ejemplo:** `{prefix}tag info saludo`"
                     }
                 }
+            },
+            "jiuda": {
+                "kill": {
+                    "title": "Uso del comando kill",
+                    "description": "Acaba con Jiuda de mil y un maneras diferentes.",
+                    "usage": "**Ejemplo:** `{prefix}kill`"
+                },
+                "deaths": {
+                    "title": "Uso del comando deaths",
+                    "description": "Muestra tus muertes obtenidas.",
+                    "usage": "**Ejemplo:** `{prefix}deaths`"
+                },
+                "deathinfo": {
+                    "title": "Uso del comando deathinfo",
+                    "description": "Muestra información sobre una muerte.",
+                    "field": {
+                        "name": "Uso: `{prefix}deathinfo <id>`",
+                        "value": "**Ejemplo:** `{prefix}deathinfo pot`"
+                    }
+                }
             }
         }
     },
@@ -389,5 +413,335 @@
         "En la película Babe: El cerdito valiente, los tractores son personificados y tienen sus propias personalidades.",
         "El John Deere Model D fue uno de los tractores más vendidos de la década de 1920.",
         "En el Museo Henry Ford en Dearborn, Michigan, puedes encontrar una exhibición de tractores históricos que muestra la evolución de la maquinaria agrícola."
-    ]
+    ],
+    "jiuda": {
+        "rarities": {
+            "common": {
+                "probability": 68.67,
+                "points": 1,
+                "emoji": "<:common:1236122060212666418>"
+            },
+            "uncommon": {
+                "probability": 16.33,
+                "points": 3,
+                "emoji": "<:uncomon:1236122069381677056>"
+            },
+            "rare": {
+                "probability": 12.38,
+                "points": 5,
+                "emoji": "<:rare:1236122068039372850>"
+            },
+            "epic": {
+                "probability": 2.12,
+                "points": 10,
+                "emoji": "<:epic:1236122061991313428>"
+            },
+            "legendary": {
+                "probability": 0.45,
+                "points": 20,
+                "emoji": "<:legendary:1236122065472585748>"
+            },
+            "god": {
+                "probability": 0.05,
+                "points": 100,
+                "emoji": "<:god:1236122063769440326>"
+            }
+        },
+        "deaths": [
+            {
+                "id": "pot",
+                "name": "¡Ay no, mi maceta!",
+                "event": "Una maceta cae desde un decimo piso en la cabeza de Jiuda",
+                "rarity": "common"
+            },
+            {
+                "id": "heart",
+                "name": "Paro cardíaco",
+                "event": "Jiuda muere de un ataque al corazón.",
+                "rarity": "common"
+            },
+            {
+                "id": "epilepsy",
+                "name": "Mientras más luces, más FPS",
+                "event": "Jugando un juego con muchos colores, Jiuda sufre un ataque de epilepsia y muere.",
+                "rarity": "common"
+            },
+            {
+                "id": "food",
+                "name": "¡Un terrible sabor!",
+                "event": "Jiuda come comida en mal estado y muere",
+                "rarity": "common"
+            },
+            {
+                "id": "drown",
+                "name": "Nada, Jiuda, nada",
+                "event": "Jiuda entro al mar para buscar una bolsa de plástico, al intentar volver recordó que no sabe nadar.",
+                "rarity": "common"
+            },
+            {
+                "id": "beatup",
+                "name": "¡PELEA, PELEA, PELEA!",
+                "event": "Jiuda entra a un bar e inicia una pelea, muere de un golpe.",
+                "rarity": "common"
+            },
+            {
+                "id": "avalanche",
+                "name": "Una tranquila nevada",
+                "event": "Jiuda paseaba hasta que una avalancha lo aplasto.",
+                "rarity": "common"
+            },
+            {
+                "id": "falling",
+                "name": "¡Cuidado abajo!",
+                "event": "En un viaje a la montaña, Jiuda cayó de un barranco.",
+                "rarity": "common"
+            },
+            {
+                "id": "trip",
+                "name": "Un tropiezo fatal",
+                "event": "Jiuda se tropieza en la escalera y muere.",
+                "rarity": "common"
+            },
+            {
+                "id": "explosion",
+                "name": "Este olor... ¿acaso es ga-?",
+                "event": "Hubo una fuga de gas, y Jiuda decidió buscarla con un fósforo... ",
+                "rarity": "common"
+            },
+            {
+                "id": "fear",
+                "name": "¡Qué susto!",
+                "event": "Jiuda se asustó y murió.",
+                "rarity": "common"
+            },
+            {
+                "id": "dream",
+                "name": "Sueño profundo",
+                "event": "Un día Jiuda tenía mucho sueño así que fue a dormir… jamás despertó.",
+                "rarity": "common"
+            },
+            {
+                "id": "car",
+                "name": "Mira a ambos lados antes de cruzar",
+                "event": "Un auto pasa a 200km/h y atropella a Jiuda.",
+                "rarity": "common"
+            },
+            {
+                "id": "killer",
+                "name": "¿Quién dejo esta cabeza tirada?",
+                "event": "Un asesino apareció de la nada frente a Jiuda y le corta la cabeza.",
+                "rarity": "common"
+            },
+            {
+                "id": "age",
+                "name": "¡Cómo pasa el tiempo!",
+                "event": "En el final de sus días, Jiuda recuerda su vida y todo lo que en ella sucedió... No llego ni a los 18 y su cuerpo no pudo más, además todos sus recuerdos eran horribles.",
+                "rarity": "uncommon"
+            },
+            {
+                "id": "fishbone",
+                "name": "Habrá que buscar otro desespinador",
+                "event": "A Jiuda lo obligaron a comer pescado, como el muy pendejo no sabia se clavo una espina en la garganta y murio.",
+                "rarity": "uncommon"
+            },
+            {
+                "id": "kaboom",
+                "name": "¡KABOOM!",
+                "event": "¿Te han dicho que no metas cosas de metal en el microondas? Pues a Jiuda no, y eso tuvo sus consecuencias… toda su comida se arruinó y luego Jiuda explotó.",
+                "rarity": "uncommon"
+            },
+            {
+                "id": "roberry",
+                "name": "Un invitado no deseado",
+                "event": "Un ladron entra a casa de Jiuda y lo mata, no habían cosas de valor en la casa de Jiuda.",
+                "rarity": "uncommon"
+            },
+            {
+                "id": "snake",
+                "name": "¡Qué serpiente tan bonita!",
+                "event": "Una serpiente venenosa pica a Jiuda en la pierna, la serpiente escupe del asco y Jiuda muere pocas horas después.",
+                "rarity": "uncommon"
+            },
+            {
+                "id": "cactus",
+                "name": "No deberías intentar tocar un cactus",
+                "event": "Jiuda muere empalado por un cactus, el cactus no se movía.",
+                "rarity": "uncommon"
+            },
+            {
+                "id": "stop",
+                "name": "¡ALTO!",
+                "event": "Jiuda iba a comprar pan al OXXO cuando una bicicleta a toda velocidad casi lo atropella, por suerte para el ciclista se consiguió detener. El queso del OXXO estaba viejo y mató a Jiuda de una infección gastrointestinal.",
+                "rarity": "rare"
+            },
+            {
+                "id": "sida",
+                "name": "¡Con cuidado por atrás!",
+                "event": "Nadie esperaba que Jiuda muriera por sida, tal parece que alguien le clavo por atrás su espada.",
+                "rarity": "rare"
+            },
+            {
+                "id": "shark",
+                "name": "Un tiburón... ¿De arena?",
+                "event": "Un tiburon se come a Jiuda... estaba en tierra... en el desierto.",
+                "rarity": "rare"
+            },
+            {
+                "id": "drugs",
+                "name": "Dosis Letal",
+                "event": "¡Jiuda ha caído en las drogas! Fue encontrado muerto por su vecino, después de meticulosas investigaciones se descubrió que Jiuda se había inyectado 2 mililitros de jugo de zanahoria, su cuerpo no lo soporto.",
+                "rarity": "rare"
+            },
+            {
+                "id": "piano",
+                "name": "¡Qué hermosos acordes!",
+                "event": "Un piano, interpretando la mejor pieza de Beethoven, cae desde el cuadragésimo piso de un edificio directamente sobre Jiuda. No, no Beethoven el músico, Beethoven el perro.",
+                "rarity": "rare"
+            },
+            {
+                "id": "twister",
+                "name": "Se avecinan malos tiempos...",
+                "event": "¡Alerta de tornado! Un tornado se dirige a... ¡¿La casa de Jiuda?!",
+                "rarity": "rare"
+            },
+            {
+                "id": "meteorite",
+                "name": "Alguien debió revisar su horóscopo hoy",
+                "event": "Enviado desde quien sabe donde, un meteorito que logro cruzar la atmosfera cae... cerca de Jiuda, Jiuda muere del susto.",
+                "rarity": "epic"
+            },
+            {
+                "id": "realmeteorite",
+                "name": "Criminal espacial",
+                "event": "Un meteorito cae en la cabeza de Jiuda a gran velocidad, parece haber sido enviado por la NASA para matar a un criminal peligroso, no sabemos si era Jiuda...",
+                "rarity": "epic"
+            },
+            {
+                "id": "earthquake",
+                "name": "Una sacudida agresiva",
+                "event": "Un fuerte terremoto categoria 16 sacudio Mexico haciendo caer a Jiuda en una gran grieta, una nueva sacudida cerro la grieta con Jiuda dentro.",
+                "rarity": "epic"
+            },
+            {
+                "id": "furry",
+                "name": "¡Qué furro!",
+                "event": "En una de sus tantas convenciones furras, Jiuda va al almacén del edificio a realizar “actividades grupales de ejercicio” con sus compañeros furros. Parece que la experiencia fue demasiado para él ya que nadie lo volvió a ver luego de eso.",
+                "rarity": "epic"
+            },
+            {
+                "id": "cartel",
+                "name": "Sabes demasiado...",
+                "event": "Despues de descubrir los secretos de un poderoso cartel mexicano (por accidente), 20 criminales armados son enviados a su casa. Dos meses despues su cuerpo fue encontrado en una bolsa negra hecho trocitos.",
+                "rarity": "epic"
+            },
+            {
+                "id": "thunder",
+                "name": "¿Quién quito el pararrayos de ahí?",
+                "event": "Jiuda caminaba tranquilamente hasta que un rayo cae sobre el, qué desperdicio de energía...",
+                "rarity": "epic"
+            },
+            {
+                "id": "chef",
+                "name": "Una cocina inusual",
+                "event": "Un chef de animales exóticos encuentra a Jiuda y hace 'Ornitorrinco le Wamuu'.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "water",
+                "name": "¡Encuentra al impostor!",
+                "event": "Jiuda intenta beber un vaso de agua pero el agua se lo bebe a él, luego el agua toma forma propia y crea un Jiuda de agua que lo reemplaza en su vida diaria sin que nadie se de cuenta.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "spaceship",
+                "name": "Destino inesperado",
+                "event": "Un astronauta pone un piloto automático experimental en su nave que lo lleva al planeta mas desierto que exista, esto lo dirige a la cabeza de Jiuda ya que esta esta totalmente vacía adentro.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "rabbit",
+                "name": "¡Cuidado con el conejo!",
+                "event": "Saliendo a caminar, Jiuda se encontró con un conejo gigante volador del espacio exterior con ojos rojos hiperrealistas que se lo llevó a su planeta para… hacer cosas de conejos, tú sabes.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "breakingbad",
+                "name": "Rompiendo Malo",
+                "event": "Estando en el desierto, Jiuda vio una camioneta a lo lejos que despedía un humo azul y un olor curioso, al acercarse se encontró con Walter Black y Jessie Lightblueman, quienes creyeron que era miembro de la policía antidrogas y decidieron interrogarlo, como no consiguieron nada le dieron una droga experimental que habían creado. El cerebro de Jiuda se licuo hasta que no quedó nada.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "nuclear",
+                "name": "Un pequeño accidente nuclear",
+                "event": "Después de varios experimentos nucleares, los átomos de Jiuda son separados y destruidos. Uno de sus átomos es cortado a la mitad lo que genera una explosión nuclear que provoca que los seres vivos muten a ornitorrincos turquesas con sombrero.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "cotylorhynchus",
+                "name": "Un viaje al pasado",
+                "event": "Después de ser secuestrado por científicos y ser enviado al Precámbrico, Jiuda es comido por un Cotylorhynchus (son herbívoros).",
+                "rarity": "legendary"
+            },
+            {
+                "id": "dragon",
+                "name": "Una criatura de fantasía",
+                "event": "De un portal espaciotemporal, un dragón de la Edad Media llega a nuestro tiempo, quema a Jiuda, se lo traga, lo escupe y vuelve al portal.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "potatomine",
+                "name": "¡SPUDOW!",
+                "event": "Después de ser teletransportado por las millones de dimensiones existentes, Jiuda termina en un jardín aparentemente normal con girasoles plantados en el fondo, al acercarse a la casa escucha el sonido de algo siendo plantado, pero no le da importancia, como el muy idiota no mira al frente al caminar pisa un explosivo que lo vuela en pedazos.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "fly",
+                "name": "Una legión de moscas",
+                "event": "Después de 4 días viviendo en la basura, un grupo de 200 moscas se llevaron a Jiuda al mundo de las moscas donde fue usado como incubadora para 115 generaciones de moscas antes de explotar por las increíbles cantidades de moscas que habían en su interior.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "spiderman",
+                "name": "¡Spiderman, spiderman!",
+                "event": "Jiuda se dejó picar por una araña radioactiva creyendo que conseguiría poderes, pero esto solo hace que su cuerpo se derrita en una pasta verde brillante.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "planet",
+                "name": "¡Un desastre planetario!",
+                "event": "El núcleo de la Tierra se apaga repentinamente y toda la vida en la Tierra desaparece excepto Jiuda, que muere al tropezarse con sus autitos de juguete.",
+                "rarity": "legendary"
+            },
+            {
+                "id": "tractor",
+                "name": "Un verdadero dios",
+                "event": "Tras fallar en el ritual diario al Dios y Salvador Señor del Mundo Máximo Tractor, Jiuda es enviado al noveno motor del infierno, donde es torturado por los macabros demonios tractorianos por la eternidad.",
+                "rarity": "god"
+            },
+            {
+                "id": "lix",            
+                "name": "Visiones extrañas",
+                "event": "Después de una intensa noche con Lix, Jiuda muere de cansancio... y de la altísima cantidad de alucinógenos que Lix le había administrado.",
+                "rarity": "god"
+            },
+            {
+                "id": "nico",
+                "name": "Sonido mortal",
+                "event": "Jiuda fue secuestrado por Nicomelagosa101veces para hacerlo escuchar a Taylor Swift, después de unas horas la cabeza de Jiuda explotó en millones de pedazos que se esparcieron por la habitación. La música le gustaba pero los audífonos que Nico le puso estaban muy apretados y no soporto la presión.",
+                "rarity": "god"
+            },
+            {
+                "id": "maxi",
+                "name": "Un castigo necesario",
+                "event": "Con uno de sus castigos totalmente necesarios y justos, Maxi desemboca su poder destructivo utilizando la Rafaga de Partes de Tractores para destruirlo.",
+                "rarity": "god"
+            },
+            {
+                "id": "venezuela",
+                "name": "Comer o no comer, esa es la cuestión",
+                "event": "Al ser enviado a un calabozo de Venezuela por Nicolás Modoro Moros por estár en contra del régimen comunista, Jiuda muere de hambre (no es que no le dieran comida, es que se negaba a comer platano asado con queso).",
+                "rarity": "god"
+            }
+        ]
+    }
 }
