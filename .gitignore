@@ -3,3 +3,4 @@ config.json
 tags.json
 banned_links.json
 banned_words.json
+database.db

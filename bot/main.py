@@ -2,6 +2,7 @@ import json
 import os
 import sys
 
+import aiosqlite
 import discord
 from discord.ext import commands
 
@@ -69,6 +70,11 @@ class Client(commands.Bot):
                         f"cogs.{dir}.{cog}" if dir else f"cogs.{cog}"
                     )
                     self.cogs_loaded.append(f"{dir}.{cog}" if dir else cog)
+
+        async with aiosqlite.connect(f"{os.getcwd()}/bot/data/database.db") as db:
+            with open(f"{os.getcwd()}/bot/data/schema.sql") as file:
+                await db.executescript(file.read())
+            await db.commit()
 
         client.add_view(Verification())
         client.add_view(Autoroles())

@@ -1,4 +1,5 @@
 from typing import Any
+
 import discord
 from discord import Color, app_commands
 from discord.ext import commands
@@ -6,25 +7,57 @@ from discord.ext.commands import Context
 
 from bot.utils.pagination import paginate_embed
 
+
 class Dropdown(discord.ui.Select):
     def __init__(self, pages):
 
         options = [
-            discord.SelectOption(label='General', description='Muestra el menú de ayuda inicial', emoji='🚀'),
-            discord.SelectOption(label='Util', description='Muestra el menú de ayuda con los comandos de utilidad', emoji='🛠️'),
-            discord.SelectOption(label='Fun', description='Muestra el menú de ayuda con los comandos de diversión', emoji='🎉'),
-            discord.SelectOption(label='Tag', description='Muestra el menú de ayuda con los comandos tag', emoji='🏷️'),
+            discord.SelectOption(
+                label="General",
+                description="Muestra el menú de ayuda inicial",
+                emoji="🚀",
+            ),
+            discord.SelectOption(
+                label="Util",
+                description="Muestra el menú de ayuda con los comandos de utilidad",
+                emoji="🛠️",
+            ),
+            discord.SelectOption(
+                label="Fun",
+                description="Muestra el menú de ayuda con los comandos de diversión",
+                emoji="🎉",
+            ),
+            discord.SelectOption(
+                label="Tag",
+                description="Muestra el menú de ayuda con los comandos tag",
+                emoji="🏷️",
+            ),
+            discord.SelectOption(
+                label="Jiuda",
+                description="Muestra el menú de ayuda con los comandos de Jiuda",
+                emoji="🗡️",
+            ),
         ]
 
         self.pages = pages
 
-        super().__init__(placeholder='Escoge un página del menú de ayuda', min_values=1, max_values=1, options=options)
+        super().__init__(
+            placeholder="Escoge un página del menú de ayuda",
+            min_values=1,
+            max_values=1,
+            options=options,
+        )
 
     async def callback(self, interaction: discord.Interaction):
         if not interaction.response.is_done():
-            await interaction.response.edit_message(embed=self.pages[self.values[0].lower()])
+            await interaction.response.edit_message(
+                embed=self.pages[self.values[0].lower()]
+            )
         else:
-            await interaction.followup.edit_message(interaction.message.id, embed=self.pages[self.values[0].lower()])
+            await interaction.followup.edit_message(
+                interaction.message.id, embed=self.pages[self.values[0].lower()]
+            )
+
 
 class HelpCog(commands.Cog):
     def __init__(self, client: commands.Bot):
@@ -90,7 +123,7 @@ class HelpCog(commands.Cog):
             ].items():
                 embed.add_field(
                     name=value["name"],
-                    value=f"{value['value']}\n".format(self.client.config["prefix"])
+                    value=f"{value['value']}\n".format(self.client.config["prefix"]),
                 )
         elif type == "fun":
             embed = discord.Embed(
@@ -105,7 +138,7 @@ class HelpCog(commands.Cog):
             ].items():
                 embed.add_field(
                     name=value["name"],
-                    value=value["value"].format(self.client.config["prefix"])
+                    value=value["value"].format(self.client.config["prefix"]),
                 )
         elif type == "tag":
             embed = discord.Embed(
@@ -120,7 +153,22 @@ class HelpCog(commands.Cog):
             ].items():
                 embed.add_field(
                     name=value["name"],
-                    value=value["value"].format(self.client.config["prefix"])
+                    value=value["value"].format(self.client.config["prefix"]),
+                )
+        elif type == "jiuda":
+            embed = discord.Embed(
+                title=self.client.data["help"]["categories"]["jiuda"]["title"],
+                description=self.client.data["help"]["categories"]["jiuda"][
+                    "description"
+                ],
+                color=Color.dark_green(),
+            )
+            for key, value in self.client.data["help"]["categories"]["jiuda"][
+                "fields"
+            ].items():
+                embed.add_field(
+                    name=value["name"],
+                    value=value["value"].format(self.client.config["prefix"]),
                 )
         elif type == "command":
             command_data = self.client.data["help"]["commands"]
@@ -168,6 +216,7 @@ class HelpCog(commands.Cog):
                 "util": self.help_embed(type="util"),
                 "fun": self.help_embed(type="fun"),
                 "tag": self.help_embed(type="tag"),
+                "jiuda": self.help_embed(type="jiuda"),
             }
 
             view.add_item(item=Dropdown(pages=pages))
@@ -190,6 +239,7 @@ class HelpCog(commands.Cog):
                     "util": self.help_embed(type="util"),
                     "fun": self.help_embed(type="fun"),
                     "tag": self.help_embed(type="tag"),
+                    "jiuda": self.help_embed(type="jiuda"),
                 }
 
                 view.add_item(item=Dropdown(pages=pages))

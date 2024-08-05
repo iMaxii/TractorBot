@@ -74,6 +74,11 @@
                         "value": "Comandos relacionados con las tags personalizadas.",
                         "inline": true
                     },
+                    "jiuda": {
+                        "name": "🗡️ Jiuda",
+                        "value": "Comandos para disfrutar de... acabar con Jiuda.",
+                        "inline": true
+                    },
                     "commands": {
                         "name": "📝 Cómo Ver Comandos y Detalles Específicos",
                         "value": "Para ver los comandos de una categoría específica, utiliza:\n```{prefix}help category <util|fun|tag>```\nY para más información sobre un comando específico, utiliza:\n```{prefix}help command <comando>```\nO hazlo usando el prefijo `/` de los comandos slash.",
@@ -184,7 +189,25 @@
                         "value": "Muestra información detallada sobre una tag, como su creador, contenido en bruto y (próximamente) fecha de creación."
                     }
                 }
-            }            
+            },
+            "jiuda": {
+                "title": "🗡️ Jiuda",
+                "description": "Aquí están los comandos disponibles en la categoría de **Jiuda**.",
+                "fields": {
+                    "kill": {
+                        "name": "`kill`",
+                        "value": "Acaba con Jiuda de mil y un maneras diferentes."
+                    },
+                    "deaths": {
+                        "name": "`deaths`",
+                        "value": "Muestra tus muertes obtenidas."
+                    },
+                    "deathinfo": {
+                        "name": "`deathinfo <id>`",
+                        "value": "Muestra la información de una muerte."
+                    }
+                }
+            }
         },
         "commands": {
             "util": {
@@ -232,7 +255,7 @@
                     "description": "Muestra información sobre el bot.",
                     "usage": "**Ejemplo:** `{prefix}botinfo`"
                 }
-                },
+            },
             "fun": {
                 "gayrate": {
                     "title": "Uso del comando gayrate",
@@ -324,6 +347,26 @@
                     "field": {
                         "name": "Uso: `{prefix}tag info <nombre>`",
                         "value": "**Ejemplo:** `{prefix}tag info saludo`"
+                    }
+                }
+            },
+            "jiuda": {
+                "kill": {
+                    "title": "Uso del comando kill",
+                    "description": "Acaba con Jiuda de mil y un maneras diferentes.",
+                    "usage": "**Ejemplo:** `{prefix}kill`"
+                },
+                "deaths": {
+                    "title": "Uso del comando deaths",
+                    "description": "Muestra tus muertes obtenidas.",
+                    "usage": "**Ejemplo:** `{prefix}deaths`"
+                },
+                "deathinfo": {
+                    "title": "Uso del comando deathinfo",
+                    "description": "Muestra información sobre una muerte.",
+                    "field": {
+                        "name": "Uso: `{prefix}deathinfo <id>`",
+                        "value": "**Ejemplo:** `{prefix}deathinfo pot`"
                     }
                 }
             }
