@@ -23,13 +23,6 @@ class EventsCog(commands.Cog):
 
 ===============================================
 
-###############################################
-#            Bot creado por iMaxii            #
-#          https://github.com/iMaxii          # 
-#                                             #
-#     Unete al Discord de la Tractor Army     #
-#         https://discord.gg/74SJhxT6Nt       #
-###############################################\n\n
 ===============================================
 Sesión iniciada como {self.client.user.name}#{self.client.user.discriminator} | {self.client.user.id}
 Ejecutandose en un {platform.system()} {platform.release()} ({os.name})
